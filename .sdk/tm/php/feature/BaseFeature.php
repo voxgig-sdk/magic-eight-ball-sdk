@@ -1,0 +1,37 @@
+<?php
+declare(strict_types=1);
+
+// MagicEightBall SDK base feature
+
+class MagicEightBallBaseFeature
+{
+    public string $version;
+    public string $name;
+    public bool $active;
+
+    public function __construct()
+    {
+        $this->version = '0.0.1';
+        $this->name = 'base';
+        $this->active = true;
+    }
+
+    public function get_version(): string { return $this->version; }
+    public function get_name(): string { return $this->name; }
+    public function get_active(): bool { return $this->active; }
+
+    public function init(MagicEightBallContext $ctx, array $options): void {}
+    public function PostConstruct(MagicEightBallContext $ctx): void {}
+    public function PostConstructEntity(MagicEightBallContext $ctx): void {}
+    public function SetData(MagicEightBallContext $ctx): void {}
+    public function GetData(MagicEightBallContext $ctx): void {}
+    public function GetMatch(MagicEightBallContext $ctx): void {}
+    public function SetMatch(MagicEightBallContext $ctx): void {}
+    public function PrePoint(MagicEightBallContext $ctx): void {}
+    public function PreSpec(MagicEightBallContext $ctx): void {}
+    public function PreRequest(MagicEightBallContext $ctx): void {}
+    public function PreResponse(MagicEightBallContext $ctx): void {}
+    public function PreResult(MagicEightBallContext $ctx): void {}
+    public function PreDone(MagicEightBallContext $ctx): void {}
+    public function PreUnexpected(MagicEightBallContext $ctx): void {}
+}

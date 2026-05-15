@@ -1,0 +1,32 @@
+# BasicMagicEightBallFlow
+
+main: kit: flow: BasicMagicEightBallFlow:
+{
+  entity: "magic_eight_ball",
+  kind: "basic",
+  name: "BasicMagicEightBallFlow",
+  step: [
+    {
+      input: {
+        ref: "magic_eight_ball_ref01",
+        srcdatavar: "magic_eight_ball_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "magic_eight_ball01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-magic_eight_ball_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicMagicEightBallFlow"
+}

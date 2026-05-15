@@ -1,0 +1,64 @@
+# Entity: magic_eight_ball
+
+main: kit: entity: magic_eight_ball: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "magic"
+      req: false
+      type: "`$OBJECT`"
+    }
+  ]
+
+  name: "magic_eight_ball"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                example: "Will I be rich?"
+                kind: "param"
+                name: "question"
+                orig: "question"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/magic/JSON/{question}"
+          parts: [
+            "magic"
+            "JSON"
+            "{question}"
+          ]
+          select: {
+            exist: [
+              "question"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  relations: {
+    ancestors: [
+      [
+        "json"
+      ]
+    ]
+  }
+
+
+
+}

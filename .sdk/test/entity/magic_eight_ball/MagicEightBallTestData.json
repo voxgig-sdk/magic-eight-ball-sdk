@@ -1,0 +1,25 @@
+{
+  "existing": {
+    "magic_eight_ball": {
+      "MAGIC_EIGHT_BALL00": {
+        "magic": {},
+        "question": "QUESTION01"
+      },
+      "MAGIC_EIGHT_BALL01": {
+        "magic": {},
+        "question": "QUESTION01"
+      },
+      "MAGIC_EIGHT_BALL02": {
+        "magic": {},
+        "question": "QUESTION01"
+      }
+    }
+  },
+  "new": {
+    "magic_eight_ball": {
+      "magic_eight_ball_ref01": {
+        "magic": {}
+      }
+    }
+  }
+}

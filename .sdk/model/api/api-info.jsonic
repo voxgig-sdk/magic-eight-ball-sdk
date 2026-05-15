@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://github.com/abunchofapis/magic-eight-ball"
+      }
+      description: "The Magic Eight Ball API allows users to receive random fortune-telling responses typically associated with the toy. It's useful for developers looking to add a playful predictive element to their applications or websites."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://8ball.delegator.com"
+        }
+      ]
+      title: "Magic Eight Ball API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

@@ -1,0 +1,100 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Magic Eight Ball API",
+    "description": "The Magic Eight Ball API allows users to receive random fortune-telling responses typically associated with the toy. It's useful for developers looking to add a playful predictive element to their applications or websites.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://github.com/abunchofapis/magic-eight-ball"
+    }
+  },
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://github.com/abunchofapis/magic-eight-ball"
+  },
+  "servers": [
+    {
+      "url": "https://8ball.delegator.com",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/magic/JSON/{question}": {
+      "get": {
+        "summary": "Get Magic Eight Ball Response",
+        "description": "Returns a random Magic Eight Ball fortune-telling response to a provided question",
+        "operationId": "getMagicResponse",
+        "parameters": [
+          {
+            "name": "question",
+            "in": "path",
+            "description": "The question to ask the Magic Eight Ball",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "Will I be rich?"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with Magic Eight Ball answer",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "magic": {
+                      "type": "object",
+                      "properties": {
+                        "question": {
+                          "type": "string",
+                          "description": "The question that was asked"
+                        },
+                        "answer": {
+                          "type": "string",
+                          "description": "The Magic Eight Ball response"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "The category of the answer (affirmative, non-committal, or negative)",
+                          "enum": [
+                            "affirmative",
+                            "non-committal",
+                            "negative"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "magic": {
+                    "question": "Will I be rich?",
+                    "answer": "It is certain",
+                    "type": "affirmative"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid question format"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "tags": [
+          "Magic Eight Ball"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Magic Eight Ball",
+      "description": "Get fortune-telling responses from the Magic Eight Ball"
+    }
+  ]
+}
