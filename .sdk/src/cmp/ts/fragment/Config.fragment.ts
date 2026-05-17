@@ -29,7 +29,7 @@ class Config {
 
 
   options = {
-    base: 'https://8ball.delegator.com',
+    base: '$$main.kit.info.servers.0.url$$',
 
     'AUTHBLOCK'headers: 'HEADERS',
 

@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/magic-eight-ball-sdk/core"
+	"github.com/voxgig-sdk/magic-eight-ball-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/magic-eight-ball-sdk/go/utility/struct"
 )
 
 type MagicEightBallEntity struct {

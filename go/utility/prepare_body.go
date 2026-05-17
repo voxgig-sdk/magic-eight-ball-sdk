@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/magic-eight-ball-sdk/core"
+import "github.com/voxgig-sdk/magic-eight-ball-sdk/go/core"
 
 func prepareBodyUtil(ctx *core.Context) any {
 	op := ctx.Op

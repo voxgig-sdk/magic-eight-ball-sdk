@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/magic-eight-ball-sdk"
-	"github.com/voxgig-sdk/magic-eight-ball-sdk/core"
+	sdk "github.com/voxgig-sdk/magic-eight-ball-sdk/go"
+	"github.com/voxgig-sdk/magic-eight-ball-sdk/go/core"
 )
 
 func TestMagicEightBallDirect(t *testing.T) {

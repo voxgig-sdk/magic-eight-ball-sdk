@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/magic-eight-ball-sdk/core"
+	"github.com/voxgig-sdk/magic-eight-ball-sdk/go/core"
 )
 
 type LogFeature struct {

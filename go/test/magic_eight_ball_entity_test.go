@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/magic-eight-ball-sdk"
-	"github.com/voxgig-sdk/magic-eight-ball-sdk/core"
+	sdk "github.com/voxgig-sdk/magic-eight-ball-sdk/go"
+	"github.com/voxgig-sdk/magic-eight-ball-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/magic-eight-ball-sdk/go/utility/struct"
 )
 
 func TestMagicEightBallEntity(t *testing.T) {

@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/magic-eight-ball-sdk"
+	sdk "github.com/voxgig-sdk/magic-eight-ball-sdk/go"
 )
 
 func TestCustomUtility(t *testing.T) {
