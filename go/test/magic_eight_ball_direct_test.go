@@ -110,14 +110,12 @@ func magic_eight_ballDirectSetup(mockres any) *magic_eight_ballDirectSetupResult
 	env := envOverride(map[string]any{
 		"MAGICEIGHTBALL_TEST_MAGIC_EIGHT_BALL_ENTID": map[string]any{},
 		"MAGICEIGHTBALL_TEST_LIVE":    "FALSE",
-		"MAGICEIGHTBALL_APIKEY":       "NONE",
 	})
 
 	live := env["MAGICEIGHTBALL_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["MAGICEIGHTBALL_APIKEY"],
 		}
 		client := sdk.NewMagicEightBallSDK(mergedOpts)
 

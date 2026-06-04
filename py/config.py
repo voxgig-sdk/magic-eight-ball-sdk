@@ -15,9 +15,6 @@ def make_config():
         },
         "options": {
             "base": "https://8ball.delegator.com",
-            "auth": {
-                "prefix": "Bearer",
-            },
             "headers": {
         "content-type": "application/json",
       },

@@ -91,7 +91,6 @@ function magic_eight_ball_basic_setup(extra)
     ["MAGICEIGHTBALL_TEST_MAGIC_EIGHT_BALL_ENTID"] = idmap,
     ["MAGICEIGHTBALL_TEST_LIVE"] = "FALSE",
     ["MAGICEIGHTBALL_TEST_EXPLAIN"] = "FALSE",
-    ["MAGICEIGHTBALL_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -103,7 +102,6 @@ function magic_eight_ball_basic_setup(extra)
   if env["MAGICEIGHTBALL_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["MAGICEIGHTBALL_APIKEY"],
       },
       extra or {},
     })
