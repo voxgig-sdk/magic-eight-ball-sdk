@@ -10,13 +10,13 @@ The Ruby SDK for the MagicEightBall API — an entity-oriented client using idio
 
 ## Install
 ```bash
-gem install magic-eight-ball-sdk
+gem install voxgig-sdk-magic-eight-ball
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "magic-eight-ball-sdk"
+gem "voxgig-sdk-magic-eight-ball"
 ```
 
 Then run:

@@ -10,7 +10,7 @@ The Lua SDK for the MagicEightBall API — an entity-oriented client using Lua c
 
 ## Install
 ```bash
-luarocks install magic-eight-ball-sdk
+luarocks install voxgig-sdk-magic-eight-ball
 ```
 
 If the module is not yet published, add the source directory to

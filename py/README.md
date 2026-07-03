@@ -10,7 +10,7 @@ The Python SDK for the MagicEightBall API — an entity-oriented client followin
 
 ## Install
 ```bash
-pip install magic-eight-ball-sdk
+pip install voxgig-sdk-magic-eight-ball
 ```
 
 Or install from source:
