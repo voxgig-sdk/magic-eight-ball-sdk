@@ -16,25 +16,7 @@ main: {
       ]
       title: "Magic Eight Ball API"
       version: "1.0.0"
-      tagline: "Get random Magic 8-Ball style fortune-telling responses with a single HTTP call"
-      homepage: "https://freepublicapis.com/magic-eight-ball-api"
-      docs_url: "https://github.com/abunchofapis/magic-eight-ball"
-      license_short: "AGPL-3.0 (per upstream source repository)"
-      license_md: `- Source code for the upstream service is published under the [AGPL-3.0](https://github.com/abunchofapis/magic-eight-ball) license.
-- The AGPL is copyleft: derivative works and network-deployed modifications must make source available under the same terms.
-- No separate terms of use are published for the hosted endpoint; check the repository before relying on it in production.`
-      about_md: `The Magic Eight Ball API returns a random fortune-telling response in the style of the classic toy. The hosted service is community-run and maintained alongside the open-source [abunchofapis/magic-eight-ball](https://github.com/abunchofapis/magic-eight-ball) project.
-
-What you get from the API:
-
-- A single GET endpoint that returns one random Magic 8-Ball style answer per call.
-- Suitable for novelty UI elements, chatbots, tutorials, and tests that need a small no-auth endpoint.
-
-Operational notes: no authentication is required and no rate limits are documented. The community catalogue at [freepublicapis.com](https://freepublicapis.com/magic-eight-ball-api) reports that CORS is disabled on the hosted endpoint, so browser-side calls may need a proxy.`
-      entity_desc: {
-        magic_eight_ball: "A single random fortune-telling response returned by the hosted Magic 8-Ball service."
-      }
-      auth: false
     }
   }
 }
+

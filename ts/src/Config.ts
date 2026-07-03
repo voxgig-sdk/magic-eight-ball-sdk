@@ -38,6 +38,10 @@ class Config {
   options = {
     base: 'https://8ball.delegator.com',
 
+    auth: {
+      prefix: 'Bearer',
+    },
+
     headers: {
       "content-type": "application/json"
     },
@@ -55,29 +59,31 @@ class Config {
     "magic_eight_ball": {
       "fields": [
         {
+          "active": true,
           "name": "magic",
           "req": false,
           "type": "`$OBJECT`",
-          "active": true,
           "index$": 0
         }
       ],
       "name": "magic_eight_ball",
       "op": {
         "load": {
+          "input": "data",
           "name": "load",
           "points": [
             {
+              "active": true,
               "args": {
                 "params": [
                   {
+                    "active": true,
                     "example": "Will I be rich?",
                     "kind": "param",
                     "name": "question",
                     "orig": "question",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -97,11 +103,9 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 0
             }
           ],
-          "input": "data",
           "key$": "load"
         }
       },

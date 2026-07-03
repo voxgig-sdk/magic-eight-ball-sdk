@@ -79,12 +79,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'MAGICEIGHTBALL_TEST_MAGIC_EIGHT_BALL_ENTID': {},
     'MAGICEIGHTBALL_TEST_LIVE': 'FALSE',
+    'MAGICEIGHTBALL_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.MAGICEIGHTBALL_TEST_LIVE
 
   if (live) {
     const client = new MagicEightBallSDK({
+      apikey: env.MAGICEIGHTBALL_APIKEY,
     })
 
     let idmap: any = env['MAGICEIGHTBALL_TEST_MAGIC_EIGHT_BALL_ENTID']

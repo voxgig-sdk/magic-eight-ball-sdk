@@ -85,6 +85,7 @@ function magic_eight_ball_basic_setup($extra)
         "MAGICEIGHTBALL_TEST_MAGIC_EIGHT_BALL_ENTID" => $idmap,
         "MAGICEIGHTBALL_TEST_LIVE" => "FALSE",
         "MAGICEIGHTBALL_TEST_EXPLAIN" => "FALSE",
+        "MAGICEIGHTBALL_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -96,6 +97,7 @@ function magic_eight_ball_basic_setup($extra)
     if ($env["MAGICEIGHTBALL_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
+                "apikey" => $env["MAGICEIGHTBALL_APIKEY"],
             ],
             $extra ?? [],
         ]);

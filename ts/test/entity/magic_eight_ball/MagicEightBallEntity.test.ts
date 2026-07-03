@@ -111,6 +111,7 @@ function basicSetup(extra?: any) {
     'MAGIC_EIGHT_BALL_TEST_MAGIC_EIGHT_BALL_ENTID': idmap,
     'MAGIC_EIGHT_BALL_TEST_LIVE': 'FALSE',
     'MAGIC_EIGHT_BALL_TEST_EXPLAIN': 'FALSE',
+    'MAGIC_EIGHT_BALL_APIKEY': 'NONE',
   })
 
   idmap = env['MAGIC_EIGHT_BALL_TEST_MAGIC_EIGHT_BALL_ENTID']
@@ -120,6 +121,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new MagicEightBallSDK(merge([
       {
+        apikey: env.MAGIC_EIGHT_BALL_APIKEY,
       },
       extra
     ]))

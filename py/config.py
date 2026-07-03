@@ -15,6 +15,9 @@ def make_config():
         },
         "options": {
             "base": "https://8ball.delegator.com",
+            "auth": {
+                "prefix": "Bearer",
+            },
             "headers": {
         "content-type": "application/json",
       },
@@ -26,29 +29,31 @@ def make_config():
       "magic_eight_ball": {
         "fields": [
           {
+            "active": True,
             "name": "magic",
             "req": False,
             "type": "`$OBJECT`",
-            "active": True,
             "index$": 0,
           },
         ],
         "name": "magic_eight_ball",
         "op": {
           "load": {
+            "input": "data",
             "name": "load",
             "points": [
               {
+                "active": True,
                 "args": {
                   "params": [
                     {
+                      "active": True,
                       "example": "Will I be rich?",
                       "kind": "param",
                       "name": "question",
                       "orig": "question",
                       "reqd": True,
                       "type": "`$STRING`",
-                      "active": True,
                     },
                   ],
                 },
@@ -68,11 +73,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "load",
           },
         },

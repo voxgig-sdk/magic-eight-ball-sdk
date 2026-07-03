@@ -1,19 +1,8 @@
 # MagicEightBall SDK
 
-Get random Magic 8-Ball style fortune-telling responses with a single HTTP call
+Magic Eight Ball API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Magic Eight Ball API
-
-The Magic Eight Ball API returns a random fortune-telling response in the style of the classic toy. The hosted service is community-run and maintained alongside the open-source [abunchofapis/magic-eight-ball](https://github.com/abunchofapis/magic-eight-ball) project.
-
-What you get from the API:
-
-- A single GET endpoint that returns one random Magic 8-Ball style answer per call.
-- Suitable for novelty UI elements, chatbots, tutorials, and tests that need a small no-auth endpoint.
-
-Operational notes: no authentication is required and no rate limits are documented. The community catalogue at [freepublicapis.com](https://freepublicapis.com/magic-eight-ball-api) reports that CORS is disabled on the hosted endpoint, so browser-side calls may need a proxy.
 
 ## Try it
 
@@ -47,27 +36,31 @@ gem install magic-eight-ball-sdk
 luarocks install magic-eight-ball-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { MagicEightBallSDK } from 'magic-eight-ball'
 
-const client = new MagicEightBallSDK({})
+const client = new MagicEightBallSDK({
+  apikey: process.env.MAGIC-EIGHT-BALL_APIKEY,
+})
 
+// Load magiceightball data
+const magiceightball = await client.MagicEightBall().load({})
+console.log(magiceightball.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -97,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **MagicEightBall** | A single random fortune-telling response returned by the hosted Magic 8-Ball service. | `/magic/JSON/{question}` |
+| **MagicEightBall** |  | `/magic/JSON/{question}` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -107,15 +100,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from magiceightball_sdk import MagicEightBallSDK
 
-client = MagicEightBallSDK({})
+client = MagicEightBallSDK({
+    "apikey": os.environ.get("MAGIC-EIGHT-BALL_APIKEY"),
+})
 
 
 # Load a specific magiceightball
-magiceightball, err = client.MagicEightBall(None).load(
-    {"id": "example_id"}, None
-)
+magiceightball, err = client.MagicEightBall().load({"id": "example_id"})
+print(magiceightball)
 ```
 
 ### PHP
@@ -124,13 +119,14 @@ magiceightball, err = client.MagicEightBall(None).load(
 <?php
 require_once 'magiceightball_sdk.php';
 
-$client = new MagicEightBallSDK([]);
+$client = new MagicEightBallSDK([
+    "apikey" => getenv("MAGIC-EIGHT-BALL_APIKEY"),
+]);
 
 
 // Load a specific magiceightball
-[$magiceightball, $err] = $client->MagicEightBall(null)->load(
-    ["id" => "example_id"], null
-);
+[$magiceightball, $err] = $client->MagicEightBall()->load(["id" => "example_id"]);
+print_r($magiceightball);
 ```
 
 ### Golang
@@ -138,8 +134,13 @@ $client = new MagicEightBallSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/magic-eight-ball-sdk/go"
 
-client := sdk.NewMagicEightBallSDK(map[string]any{})
+client := sdk.NewMagicEightBallSDK(map[string]any{
+    "apikey": os.Getenv("MAGIC-EIGHT-BALL_APIKEY"),
+})
 
+// Load magiceightball data
+magiceightball, err := client.MagicEightBall(nil).Load(map[string]any{}, nil)
+fmt.Println(magiceightball)
 ```
 
 ### Ruby
@@ -147,13 +148,14 @@ client := sdk.NewMagicEightBallSDK(map[string]any{})
 ```ruby
 require_relative "MagicEightBall_sdk"
 
-client = MagicEightBallSDK.new({})
+client = MagicEightBallSDK.new({
+  "apikey" => ENV["MAGIC-EIGHT-BALL_APIKEY"],
+})
 
 
 # Load a specific magiceightball
-magiceightball, err = client.MagicEightBall(nil).load(
-  { "id" => "example_id" }, nil
-)
+magiceightball, err = client.MagicEightBall().load({ "id" => "example_id" })
+puts magiceightball
 ```
 
 ### Lua
@@ -161,13 +163,14 @@ magiceightball, err = client.MagicEightBall(nil).load(
 ```lua
 local sdk = require("magic-eight-ball_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("MAGIC-EIGHT-BALL_APIKEY"),
+})
 
 
 -- Load a specific magiceightball
-local magiceightball, err = client:MagicEightBall(nil):load(
-  { id = "example_id" }, nil
-)
+local magiceightball, err = client:MagicEightBall():load({ id = "example_id" })
+print(magiceightball)
 ```
 
 ## Unit testing in offline mode
@@ -186,25 +189,21 @@ const result = await client.MagicEightBall().load({ id: 'test01' })
 ### Python
 
 ```python
-client = MagicEightBallSDK.test(None, None)
-result, err = client.MagicEightBall(None).load(
-    {"id": "test01"}, None
-)
+client = MagicEightBallSDK.test()
+result, err = client.MagicEightBall().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = MagicEightBallSDK::test(null, null);
-[$result, $err] = $client->MagicEightBall(null)->load(
-    ["id" => "test01"], null
-);
+$client = MagicEightBallSDK::test();
+[$result, $err] = $client->MagicEightBall()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.MagicEightBall(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -213,19 +212,15 @@ result, err := client.MagicEightBall(nil).Load(
 ### Ruby
 
 ```ruby
-client = MagicEightBallSDK.test(nil, nil)
-result, err = client.MagicEightBall(nil).load(
-  { "id" => "test01" }, nil
-)
+client = MagicEightBallSDK.test
+result, err = client.MagicEightBall().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:MagicEightBall(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:MagicEightBall():load({ id = "test01" })
 ```
 
 ## How it works
@@ -329,15 +324,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Magic Eight Ball API
-
-- Upstream: [https://freepublicapis.com/magic-eight-ball-api](https://freepublicapis.com/magic-eight-ball-api)
-- API docs: [https://github.com/abunchofapis/magic-eight-ball](https://github.com/abunchofapis/magic-eight-ball)
-
-- Source code for the upstream service is published under the [AGPL-3.0](https://github.com/abunchofapis/magic-eight-ball) license.
-- The AGPL is copyleft: derivative works and network-deployed modifications must make source available under the same terms.
-- No separate terms of use are published for the hosted endpoint; check the repository before relying on it in production.
 
 ---
 

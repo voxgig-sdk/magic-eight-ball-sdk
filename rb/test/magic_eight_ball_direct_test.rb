@@ -69,12 +69,14 @@ def magic_eight_ball_direct_setup(mockres)
   env = Runner.env_override({
     "MAGICEIGHTBALL_TEST_MAGIC_EIGHT_BALL_ENTID" => {},
     "MAGICEIGHTBALL_TEST_LIVE" => "FALSE",
+    "MAGICEIGHTBALL_APIKEY" => "NONE",
   })
 
   live = env["MAGICEIGHTBALL_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
+      "apikey" => env["MAGICEIGHTBALL_APIKEY"],
     }
     client = MagicEightBallSDK.new(merged_opts)
     return {
