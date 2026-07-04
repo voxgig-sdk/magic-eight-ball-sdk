@@ -33,9 +33,10 @@ $client = new MagicEightBallSDK();
 
 ```php
 try {
-    $result = $client->magiceightball()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare MagicEightBall record (throws on error).
+    $magiceightball = $client->MagicEightBall()->load(["id" => "example_id"]);
+    print_r($magiceightball);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -81,13 +82,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = MagicEightBallSDK::test();
+$client = MagicEightBallSDK::test([
+    "entity" => ["magiceightball" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->magiceightball()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$magiceightball = $client->MagicEightBall()->load(["id" => "test01"]);
+print_r($magiceightball);
 ```
 
 ### Use a custom fetch function
@@ -223,7 +228,7 @@ API path: `/magic/JSON/{question}`
 
 ### MagicEightBall
 
-Create an instance: `const magic_eight_ball = client.magic_eight_ball`
+Create an instance: `$magic_eight_ball = $client->MagicEightBall();`
 
 #### Operations
 
@@ -239,8 +244,9 @@ Create an instance: `const magic_eight_ball = client.magic_eight_ball`
 
 #### Example: Load
 
-```ts
-const magic_eight_ball = await client.magic_eight_ball.load({ id: 'magic_eight_ball_id' })
+```php
+// load() returns the bare MagicEightBall record (throws on error).
+$magic_eight_ball = $client->MagicEightBall()->load(["id" => "magic_eight_ball_id"]);
 ```
 
 
@@ -315,7 +321,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$magiceightball = $client->magiceightball();
+$magiceightball = $client->MagicEightBall();
 $magiceightball->load(["id" => "example_id"]);
 
 // $magiceightball->dataGet() now returns the loaded magiceightball data

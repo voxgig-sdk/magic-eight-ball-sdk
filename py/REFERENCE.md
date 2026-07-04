@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## MagicEightBallEntity
 
 ```python
-magic_eight_ball = client.magic_eight_ball
+magic_eight_ball = client.MagicEightBall()
 ```
 
 ### Fields
@@ -96,7 +96,7 @@ magic_eight_ball = client.magic_eight_ball
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.magic_eight_ball.load({"id": "magic_eight_ball_id"})
+result = client.MagicEightBall().load({"id": "magic_eight_ball_id"})
 ```
 
 ### Common Methods

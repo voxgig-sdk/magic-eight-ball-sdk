@@ -109,7 +109,7 @@ Alias for `MagicEightBallSDK.test()`.
 ## MagicEightBallEntity
 
 ```ts
-const magic_eight_ball = client.magic_eight_ball
+const magic_eight_ball = client.MagicEightBall()
 ```
 
 ### Fields
@@ -125,7 +125,7 @@ const magic_eight_ball = client.magic_eight_ball
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.magic_eight_ball.load({ id: 'magic_eight_ball_id' })
+const result = await client.MagicEightBall().load({ id: 'magic_eight_ball_id' })
 ```
 
 ### Common Methods

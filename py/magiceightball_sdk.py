@@ -220,25 +220,15 @@ class MagicEightBallSDK:
         }
 
 
-    @property
-    def magic_eight_ball(self):
-        """Idiomatic facade: client.magic_eight_ball.list() / client.magic_eight_ball.load({"id": ...})."""
-        from entity.magic_eight_ball_entity import MagicEightBallEntity
-        cached = getattr(self, "_magic_eight_ball", None)
-        if cached is None:
-            cached = MagicEightBallEntity(self, None)
-            self._magic_eight_ball = cached
-        return cached
-
-    def MagicEightBall(self, data=None):
-        # Deprecated: use client.magic_eight_ball instead.
+    def MagicEightBall(self, data=None) -> "MagicEightBallEntity":
+        """Entity factory: client.MagicEightBall().list({}) / client.MagicEightBall().load({"id": ...})."""
         from entity.magic_eight_ball_entity import MagicEightBallEntity
         return MagicEightBallEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "MagicEightBallSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class MagicEightBallSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.magic_eight_ball_entity import MagicEightBallEntity

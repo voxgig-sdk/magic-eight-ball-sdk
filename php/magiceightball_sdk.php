@@ -233,10 +233,10 @@ class MagicEightBallSDK
 
     private $_magic_eight_ball = null;
 
-    // Idiomatic facade: $client->magic_eight_ball()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias MagicEightBall() (PHP method
-    // names are case-insensitive).
-    public function magic_eight_ball($data = null)
+    // Canonical facade: $client->MagicEightBall()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->magic_eight_ball()
+    // resolves here too.
+    public function MagicEightBall($data = null)
     {
         require_once __DIR__ . '/entity/magic_eight_ball_entity.php';
         if ($data === null) {

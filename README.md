@@ -26,9 +26,9 @@ import { MagicEightBallSDK } from '@voxgig-sdk/magic-eight-ball'
 
 const client = new MagicEightBallSDK()
 
-// Load magiceightball data
-const magiceightball = await client.magiceightball.load({})
-console.log(magiceightball.data)
+// Load magiceightball data (returns a MagicEightBall)
+const magiceightball = await client.MagicEightBall().load()
+console.log(magiceightball)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -84,8 +84,8 @@ from magiceightball_sdk import MagicEightBallSDK
 client = MagicEightBallSDK()
 
 
-# Load a specific magiceightball
-magiceightball = client.magiceightball.load({"id": "example_id"})
+# Load a specific magiceightball (returns the record, raises on error)
+magiceightball = client.MagicEightBall().load({"id": "example_id"})
 print(magiceightball)
 ```
 
@@ -98,8 +98,8 @@ require_once 'magiceightball_sdk.php';
 $client = new MagicEightBallSDK();
 
 
-// Load a specific magiceightball
-$magiceightball = $client->magiceightball()->load(["id" => "example_id"]);
+// Load a specific magiceightball (returns the bare record; throws on error)
+$magiceightball = $client->MagicEightBall()->load(["id" => "example_id"]);
 print_r($magiceightball);
 ```
 
@@ -123,8 +123,8 @@ require_relative "MagicEightBall_sdk"
 client = MagicEightBallSDK.new
 
 
-# Load a specific magiceightball
-magiceightball = client.magiceightball.load({ "id" => "example_id" })
+# Load a specific magiceightball (returns the bare record; raises on error)
+magiceightball = client.MagicEightBall.load({ "id" => "example_id" })
 puts magiceightball
 ```
 
@@ -137,7 +137,7 @@ local client = sdk.new()
 
 
 -- Load a specific magiceightball
-local magiceightball, err = client:magiceightball():load({ id = "example_id" })
+local magiceightball, err = client:MagicEightBall():load({ id = "example_id" })
 print(magiceightball)
 ```
 
@@ -150,22 +150,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = MagicEightBallSDK.test()
-const result = await client.magiceightball.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const magiceightball = await client.MagicEightBall().load({ id: 'test01' })
+// magiceightball is a bare MagicEightBall populated with mock data
+console.log(magiceightball)
 ```
 
 ### Python
 
 ```python
 client = MagicEightBallSDK.test()
-result = client.magiceightball.load({"id": "test01"})
+magiceightball = client.MagicEightBall().load({"id": "test01"})
+print(magiceightball)
 ```
 
 ### PHP
 
 ```php
-$client = MagicEightBallSDK::test();
-$result = $client->magiceightball()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = MagicEightBallSDK::test([
+    "entity" => ["magiceightball" => ["test01" => ["id" => "test01"]]],
+]);
+$magiceightball = $client->MagicEightBall()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -180,15 +185,18 @@ result, err := client.MagicEightBall(nil).Load(
 ### Ruby
 
 ```ruby
-client = MagicEightBallSDK.test
-result = client.magiceightball.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = MagicEightBallSDK.test({
+  "entity" => { "magiceightball" => { "test01" => { "id" => "test01" } } },
+})
+magiceightball = client.MagicEightBall.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:magiceightball():load({ id = "test01" })
+local result, err = client:MagicEightBall():load({ id = "test01" })
 ```
 
 ## How it works
@@ -236,6 +244,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

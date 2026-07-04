@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## MagicEightBallEntity
 
 ```ruby
-magic_eight_ball = client.magic_eight_ball
+magic_eight_ball = client.MagicEightBall
 ```
 
 ### Fields
@@ -102,7 +102,7 @@ magic_eight_ball = client.magic_eight_ball
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.magic_eight_ball.load({ "id" => "magic_eight_ball_id" })
+result = client.MagicEightBall.load({ "id" => "magic_eight_ball_id" })
 ```
 
 ### Common Methods

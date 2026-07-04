@@ -208,13 +208,7 @@ class MagicEightBallSDK
   end
 
 
-  # Idiomatic facade: client.magic_eight_ball.list / client.magic_eight_ball.load({ "id" => ... })
-  def magic_eight_ball
-    require_relative 'entity/magic_eight_ball_entity'
-    @magic_eight_ball ||= MagicEightBallEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.magic_eight_ball instead.
+  # Canonical facade: client.MagicEightBall.list / client.MagicEightBall.load({ "id" => ... })
   def MagicEightBall(data = nil)
     require_relative 'entity/magic_eight_ball_entity'
     MagicEightBallEntity.new(self, data)

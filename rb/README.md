@@ -32,8 +32,9 @@ client = MagicEightBallSDK.new
 
 ```ruby
 begin
-  result = client.magiceightball.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare MagicEightBall record (raises on error).
+  magiceightball = client.MagicEightBall.load({ "id" => "example_id" })
+  puts magiceightball
 rescue => err
   warn "load failed: #{err}"
 end
@@ -80,13 +81,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = MagicEightBallSDK.test
+client = MagicEightBallSDK.test({
+  "entity" => { "magiceightball" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.magiceightball.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+magiceightball = client.MagicEightBall.load({ "id" => "test01" })
+puts magiceightball
 ```
 
 ### Use a custom fetch function
@@ -218,7 +223,7 @@ API path: `/magic/JSON/{question}`
 
 ### MagicEightBall
 
-Create an instance: `const magic_eight_ball = client.magic_eight_ball`
+Create an instance: `magic_eight_ball = client.MagicEightBall`
 
 #### Operations
 
@@ -234,8 +239,9 @@ Create an instance: `const magic_eight_ball = client.magic_eight_ball`
 
 #### Example: Load
 
-```ts
-const magic_eight_ball = await client.magic_eight_ball.load({ id: 'magic_eight_ball_id' })
+```ruby
+# load returns the bare MagicEightBall record (raises on error).
+magic_eight_ball = client.MagicEightBall.load({ "id" => "magic_eight_ball_id" })
 ```
 
 
@@ -310,7 +316,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-magiceightball = client.magiceightball
+magiceightball = client.MagicEightBall
 magiceightball.load({ "id" => "example_id" })
 
 # magiceightball.data_get now returns the loaded magiceightball data

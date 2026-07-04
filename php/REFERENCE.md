@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## MagicEightBallEntity
 
 ```php
-$magic_eight_ball = $client->magic_eight_ball();
+$magic_eight_ball = $client->MagicEightBall();
 ```
 
 ### Fields
@@ -101,7 +101,7 @@ $magic_eight_ball = $client->magic_eight_ball();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->magic_eight_ball()->load(["id" => "magic_eight_ball_id"]);
+$result = $client->MagicEightBall()->load(["id" => "magic_eight_ball_id"]);
 ```
 
 ### Common Methods

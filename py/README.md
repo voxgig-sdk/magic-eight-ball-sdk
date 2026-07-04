@@ -33,10 +33,12 @@ client = MagicEightBallSDK()
 
 ### 3. Load a magiceightball
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.magiceightball.load({"id": "example_id"})
-    print(result)
+    magiceightball = client.MagicEightBall().load({"id": "example_id"})
+    print(magiceightball)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = MagicEightBallSDK.test()
 
-result = client.magiceightball.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+magiceightball = client.MagicEightBall().load({"id": "test01"})
+# magiceightball contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -218,7 +221,7 @@ API path: `/magic/JSON/{question}`
 
 ### MagicEightBall
 
-Create an instance: `const magic_eight_ball = client.magic_eight_ball`
+Create an instance: `magic_eight_ball = client.MagicEightBall()`
 
 #### Operations
 
@@ -234,8 +237,8 @@ Create an instance: `const magic_eight_ball = client.magic_eight_ball`
 
 #### Example: Load
 
-```ts
-const magic_eight_ball = await client.magic_eight_ball.load({ id: 'magic_eight_ball_id' })
+```python
+magic_eight_ball = client.MagicEightBall().load({"id": "magic_eight_ball_id"})
 ```
 
 
@@ -309,7 +312,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-magiceightball = client.magiceightball
+magiceightball = client.MagicEightBall()
 magiceightball.load({"id": "example_id"})
 
 # magiceightball.data_get() now returns the loaded magiceightball data

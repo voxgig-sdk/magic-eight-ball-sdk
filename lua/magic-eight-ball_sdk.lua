@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:magic_eight_ball():list() / client:magic_eight_ball():load({ id = ... })
-function MagicEightBallSDK:magic_eight_ball(data)
+-- Idiomatic facade: client:MagicEightBall():list() / client:MagicEightBall():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MagicEightBallSDK:MagicEightBall(data)
   local EntityMod = require("entity.magic_eight_ball_entity")
   if data == nil then
     if self._magic_eight_ball == nil then
@@ -253,12 +254,6 @@ function MagicEightBallSDK:magic_eight_ball(data)
     end
     return self._magic_eight_ball
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:magic_eight_ball() instead.
-function MagicEightBallSDK:MagicEightBall(data)
-  local EntityMod = require("entity.magic_eight_ball_entity")
   return EntityMod.new(self, data)
 end
 

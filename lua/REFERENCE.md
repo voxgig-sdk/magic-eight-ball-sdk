@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## MagicEightBallEntity
 
 ```lua
-local magic_eight_ball = client:magic_eight_ball(nil)
+local magic_eight_ball = client:MagicEightBall(nil)
 ```
 
 ### Fields
@@ -99,7 +99,7 @@ local magic_eight_ball = client:magic_eight_ball(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:magic_eight_ball():load({ id = "magic_eight_ball_id" })
+local result, err = client:MagicEightBall():load({ id = "magic_eight_ball_id" })
 ```
 
 ### Common Methods
