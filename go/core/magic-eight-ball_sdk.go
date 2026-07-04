@@ -245,6 +245,9 @@ func (sdk *MagicEightBallSDK) Direct(fetchargs map[string]any) (map[string]any, 
 }
 
 
+// MagicEightBall returns a MagicEightBall entity bound to this client.
+// Idiomatic usage: client.MagicEightBall(nil).List(nil, nil) or
+// client.MagicEightBall(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MagicEightBallSDK) MagicEightBall(data map[string]any) MagicEightBallEntity {
 	return NewMagicEightBallEntityFunc(sdk, data)
 }

@@ -42,8 +42,7 @@ class MagicEightBallEntityTest < Minitest::Test
     # LOAD
     magic_eight_ball_ref01_ent = client.MagicEightBall(nil)
     magic_eight_ball_ref01_match_dt0 = {}
-    magic_eight_ball_ref01_data_dt0_loaded, err = magic_eight_ball_ref01_ent.load(magic_eight_ball_ref01_match_dt0, nil)
-    assert_nil err
+    magic_eight_ball_ref01_data_dt0_loaded = magic_eight_ball_ref01_ent.load(magic_eight_ball_ref01_match_dt0, nil)
     assert !magic_eight_ball_ref01_data_dt0_loaded.nil?
 
   end
@@ -82,7 +81,6 @@ def magic_eight_ball_basic_setup(extra)
     "MAGICEIGHTBALL_TEST_MAGIC_EIGHT_BALL_ENTID" => idmap,
     "MAGICEIGHTBALL_TEST_LIVE" => "FALSE",
     "MAGICEIGHTBALL_TEST_EXPLAIN" => "FALSE",
-    "MAGICEIGHTBALL_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -94,7 +92,6 @@ def magic_eight_ball_basic_setup(extra)
   if env["MAGICEIGHTBALL_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["MAGICEIGHTBALL_APIKEY"],
       },
       extra || {},
     ])

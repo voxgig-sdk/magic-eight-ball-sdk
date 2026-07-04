@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch MagicEightBallLoadMatch
+---@param ctrl? table
+---@return MagicEightBall
+---@return string? err
 function MagicEightBallEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

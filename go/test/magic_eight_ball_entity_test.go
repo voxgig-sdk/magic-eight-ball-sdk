@@ -117,7 +117,6 @@ func magic_eight_ballBasicSetup(extra map[string]any) *entityTestSetup {
 		"MAGICEIGHTBALL_TEST_MAGIC_EIGHT_BALL_ENTID": idmap,
 		"MAGICEIGHTBALL_TEST_LIVE":      "FALSE",
 		"MAGICEIGHTBALL_TEST_EXPLAIN":   "FALSE",
-		"MAGICEIGHTBALL_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["MAGICEIGHTBALL_TEST_MAGIC_EIGHT_BALL_ENTID"])
@@ -128,7 +127,6 @@ func magic_eight_ballBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["MAGICEIGHTBALL_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["MAGICEIGHTBALL_APIKEY"],
 			},
 			extra,
 		})

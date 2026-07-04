@@ -38,10 +38,6 @@ class Config {
   options = {
     base: 'https://8ball.delegator.com',
 
-    auth: {
-      prefix: 'Bearer',
-    },
-
     headers: {
       "content-type": "application/json"
     },
@@ -83,7 +79,8 @@ class Config {
                     "name": "question",
                     "orig": "question",
                     "reqd": true,
-                    "type": "`$STRING`"
+                    "type": "`$STRING`",
+                    "index$": 0
                   }
                 ]
               },

@@ -2,6 +2,8 @@
 
 import { MagicEightBallEntity } from './entity/MagicEightBallEntity'
 
+export type * from './MagicEightBallTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class MagicEightBallSDK {
 
 
 
+  _magic_eight_ball?: MagicEightBallEntity
+
+  // Idiomatic facade: `client.magic_eight_ball.list()` / `client.magic_eight_ball.load({ id })`.
+  get magic_eight_ball(): MagicEightBallEntity {
+    return (this._magic_eight_ball ??= new MagicEightBallEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.magic_eight_ball` instead. */
   MagicEightBall(data?: any) {
     const self = this
     return new MagicEightBallEntity(self,data)

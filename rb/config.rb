@@ -15,9 +15,6 @@ module MagicEightBallConfig
       },
       "options" => {
         "base" => "https://8ball.delegator.com",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },
@@ -54,6 +51,7 @@ module MagicEightBallConfig
                         "orig" => "question",
                         "reqd" => true,
                         "type" => "`$STRING`",
+                        "index$" => 0,
                       },
                     ],
                   },

@@ -9,12 +9,9 @@ The Lua SDK for the MagicEightBall API — an entity-oriented client using Lua c
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-magic-eight-ball
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/magic-eight-ball-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("magic-eight-ball_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("MAGIC-EIGHT-BALL_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 3. Load a magiceightball
 
 ```lua
-local result, err = client:MagicEightBall():load({ id = "example_id" })
+local result, err = client:magiceightball():load({ id = "example_id" })
 if err then error(err) end
 print(result)
 ```
@@ -87,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:MagicEightBall():load({ id = "test01" })
+local result, err = client:magiceightball():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -120,8 +115,7 @@ local client = sdk.new({
 Create a `.env.local` file at the project root:
 
 ```
-MAGIC-EIGHT-BALL_TEST_LIVE=TRUE
-MAGIC-EIGHT-BALL_APIKEY=<your-key>
+MAGIC_EIGHT_BALL_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -144,7 +138,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -221,7 +214,7 @@ API path: `/magic/JSON/{question}`
 
 ### MagicEightBall
 
-Create an instance: `const magic_eight_ball = client.MagicEightBall()`
+Create an instance: `const magic_eight_ball = client.magic_eight_ball`
 
 #### Operations
 
@@ -238,7 +231,7 @@ Create an instance: `const magic_eight_ball = client.MagicEightBall()`
 #### Example: Load
 
 ```ts
-const magic_eight_ball = await client.MagicEightBall().load({ id: 'magic_eight_ball_id' })
+const magic_eight_ball = await client.magic_eight_ball.load({ id: 'magic_eight_ball_id' })
 ```
 
 
@@ -313,11 +306,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local magiceightball = client:magiceightball()
+magiceightball:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- magiceightball:data_get() now returns the loaded magiceightball data
+-- magiceightball:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

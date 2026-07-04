@@ -49,8 +49,7 @@ class MagicEightBallEntityTest extends TestCase
         // LOAD
         $magic_eight_ball_ref01_ent = $client->MagicEightBall(null);
         $magic_eight_ball_ref01_match_dt0 = [];
-        [$magic_eight_ball_ref01_data_dt0_loaded, $err] = $magic_eight_ball_ref01_ent->load($magic_eight_ball_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $magic_eight_ball_ref01_data_dt0_loaded = $magic_eight_ball_ref01_ent->load($magic_eight_ball_ref01_match_dt0, null);
         $this->assertNotNull($magic_eight_ball_ref01_data_dt0_loaded);
 
     }
@@ -85,7 +84,6 @@ function magic_eight_ball_basic_setup($extra)
         "MAGICEIGHTBALL_TEST_MAGIC_EIGHT_BALL_ENTID" => $idmap,
         "MAGICEIGHTBALL_TEST_LIVE" => "FALSE",
         "MAGICEIGHTBALL_TEST_EXPLAIN" => "FALSE",
-        "MAGICEIGHTBALL_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,7 +95,6 @@ function magic_eight_ball_basic_setup($extra)
     if ($env["MAGICEIGHTBALL_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["MAGICEIGHTBALL_APIKEY"],
             ],
             $extra ?? [],
         ]);
