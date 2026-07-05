@@ -67,10 +67,12 @@ class MagicEightBallEntity
   
   # Load a single MagicEightBall.
   #
-  # @param reqmatch [MagicEightBallLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param reqmatch [MagicEightBallLoadMatch, Hash, nil] match criteria (id/query fields);
+  #   optional — an entity with no id-like key loads with no match (nil is treated
+  #   as an empty match, so client.MagicEightBall.load works with no args).
   # @param ctrl [Object, nil] optional per-call control
   # @return [MagicEightBall, Hash] the loaded MagicEightBall; raises MagicEightBallError on failure
-  def load(reqmatch, ctrl = nil)
+  def load(reqmatch = nil, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({
       "opname" => "load",

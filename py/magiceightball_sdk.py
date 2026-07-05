@@ -221,7 +221,7 @@ class MagicEightBallSDK:
 
 
     def MagicEightBall(self, data=None) -> "MagicEightBallEntity":
-        """Entity factory: client.MagicEightBall().list({}) / client.MagicEightBall().load({"id": ...})."""
+        """Entity factory: client.MagicEightBall().list() / client.MagicEightBall().load({"id": ...})."""
         from entity.magic_eight_ball_entity import MagicEightBallEntity
         return MagicEightBallEntity(self, data)
 

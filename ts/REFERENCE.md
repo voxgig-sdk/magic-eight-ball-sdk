@@ -116,7 +116,7 @@ const magic_eight_ball = client.MagicEightBall()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `magic` | ``$OBJECT`` | No |  |
+| `magic` | `Record<string, any>` | No |  |
 
 ### Operations
 
@@ -125,7 +125,7 @@ const magic_eight_ball = client.MagicEightBall()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.MagicEightBall().load({ id: 'magic_eight_ball_id' })
+const result = await client.MagicEightBall().load()
 ```
 
 ### Common Methods

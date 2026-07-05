@@ -8,7 +8,7 @@ Complete API reference for the MagicEightBall Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'magic-eight-ball_sdk'
+require_relative 'MagicEightBall_sdk'
 
 client = MagicEightBallSDK.new(options)
 ```
@@ -93,7 +93,7 @@ magic_eight_ball = client.MagicEightBall
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `magic` | ``$OBJECT`` | No |  |
+| `magic` | `Hash` | No |  |
 
 ### Operations
 
@@ -102,7 +102,7 @@ magic_eight_ball = client.MagicEightBall
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.MagicEightBall.load({ "id" => "magic_eight_ball_id" })
+result = client.MagicEightBall.load()
 ```
 
 ### Common Methods

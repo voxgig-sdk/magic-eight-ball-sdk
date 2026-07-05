@@ -8,7 +8,7 @@ Complete API reference for the MagicEightBall PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/magic-eight-ball_sdk.php';
+require_once __DIR__ . '/magiceightball_sdk.php';
 
 $client = new MagicEightBallSDK($options);
 ```
@@ -45,11 +45,11 @@ $client = MagicEightBallSDK::test();
 
 Create a new `MagicEightBallEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): MagicEightBallUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,7 +92,7 @@ $magic_eight_ball = $client->MagicEightBall();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `magic` | ``$OBJECT`` | No |  |
+| `magic` | `array` | No |  |
 
 ### Operations
 
@@ -101,24 +101,24 @@ $magic_eight_ball = $client->MagicEightBall();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->MagicEightBall()->load(["id" => "magic_eight_ball_id"]);
+$result = $client->MagicEightBall()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -127,7 +127,7 @@ Set the entity match criteria.
 Create a new `MagicEightBallEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

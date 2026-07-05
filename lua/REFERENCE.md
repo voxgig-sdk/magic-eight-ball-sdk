@@ -90,7 +90,7 @@ local magic_eight_ball = client:MagicEightBall(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `magic` | ``$OBJECT`` | No |  |
+| `magic` | `table` | No |  |
 
 ### Operations
 
@@ -99,7 +99,7 @@ local magic_eight_ball = client:MagicEightBall(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:MagicEightBall():load({ id = "magic_eight_ball_id" })
+local result, err = client:MagicEightBall():load()
 ```
 
 ### Common Methods

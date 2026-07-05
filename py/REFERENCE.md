@@ -8,7 +8,7 @@ Complete API reference for the MagicEightBall Python SDK.
 ### Constructor
 
 ```python
-from magic-eight-ball_sdk import MagicEightBallSDK
+from magiceightball_sdk import MagicEightBallSDK
 
 client = MagicEightBallSDK(options)
 ```
@@ -87,7 +87,7 @@ magic_eight_ball = client.MagicEightBall()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `magic` | ``$OBJECT`` | No |  |
+| `magic` | `dict` | No |  |
 
 ### Operations
 
@@ -96,7 +96,7 @@ magic_eight_ball = client.MagicEightBall()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.MagicEightBall().load({"id": "magic_eight_ball_id"})
+result = client.MagicEightBall().load()
 ```
 
 ### Common Methods

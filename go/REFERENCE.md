@@ -97,7 +97,7 @@ magic_eight_ball := client.MagicEightBall(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `magic` | ``$OBJECT`` | No |  |
+| `magic` | `map[string]any` | No |  |
 
 ### Operations
 
@@ -106,7 +106,7 @@ magic_eight_ball := client.MagicEightBall(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.MagicEightBall(nil).Load(map[string]any{"id": "magic_eight_ball_id"}, nil)
+result, err := client.MagicEightBall(nil).Load(nil, nil)
 ```
 
 ### Common Methods
