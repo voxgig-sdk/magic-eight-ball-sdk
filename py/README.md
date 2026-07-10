@@ -38,11 +38,12 @@ client = MagicEightBallSDK()
 
 ### 3. Load a magiceightball
 
+MagicEightBall is nested under question, so provide the `question`.
 `load()` returns the bare record (a `dict`) and raises on error.
 
 ```python
 try:
-    magiceightball = client.MagicEightBall().load()
+    magiceightball = client.MagicEightBall().load({"question": "example_question"})
     print(magiceightball)
 except Exception as err:
     print(f"load failed: {err}")
@@ -270,7 +271,7 @@ Create an instance: `magic_eight_ball = client.MagicEightBall()`
 #### Example: Load
 
 ```python
-magic_eight_ball = client.MagicEightBall().load()
+magic_eight_ball = client.MagicEightBall().load({"question": "question"})
 ```
 
 

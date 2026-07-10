@@ -102,7 +102,7 @@ magic_eight_ball = client.MagicEightBall
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.MagicEightBall.load()
+result = client.MagicEightBall.load({ "question" => "question" })
 ```
 
 ### Common Methods

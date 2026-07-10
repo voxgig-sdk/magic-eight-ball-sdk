@@ -50,12 +50,12 @@ import (
 func main() {
     client := sdk.New()
 
-    // Load a single magiceightball — the value is the loaded record.
-    magiceightball, err := client.MagicEightBall(nil).Load(nil, nil)
+    // Load a single magicEightBall — the value is the loaded record.
+    magicEightBall, err := client.MagicEightBall(nil).Load(map[string]any{"question": "example_question"}, nil)
     if err != nil {
         panic(err)
     }
-    fmt.Println(magiceightball)
+    fmt.Println(magicEightBall)
 }
 ```
 
@@ -135,13 +135,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-magiceightball, err := client.MagicEightBall(nil).Load(
+magicEightBall, err := client.MagicEightBall(nil).Load(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(magiceightball) // the returned mock data
+fmt.Println(magicEightBall) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -245,9 +245,9 @@ Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    magiceightball, err := client.MagicEightBall(nil).Load(nil, nil)
+    magicEightBall, err := client.MagicEightBall(nil).Load(nil, nil)
     if err != nil { /* handle */ }
-    // magiceightball is the returned record
+    // magicEightBall is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -271,7 +271,7 @@ API path: `/magic/JSON/{question}`
 
 ### MagicEightBall
 
-Create an instance: `magic_eight_ball := client.MagicEightBall(nil)`
+Create an instance: `magicEightBall := client.MagicEightBall(nil)`
 
 #### Operations
 
@@ -288,11 +288,11 @@ Create an instance: `magic_eight_ball := client.MagicEightBall(nil)`
 #### Example: Load
 
 ```go
-magic_eight_ball, err := client.MagicEightBall(nil).Load(nil, nil)
+magicEightBall, err := client.MagicEightBall(nil).Load(map[string]any{"question": "question"}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(magic_eight_ball) // the loaded record
+fmt.Println(magicEightBall) // the loaded record
 ```
 
 

@@ -125,7 +125,7 @@ const magic_eight_ball = client.MagicEightBall()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.MagicEightBall().load()
+const result = await client.MagicEightBall().load({ question: 'question' })
 ```
 
 ### Common Methods

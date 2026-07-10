@@ -35,11 +35,14 @@ const client = new MagicEightBallSDK()
 
 ### 3. Load a magiceightball
 
+MagicEightBall is nested under question, so provide the `question`.
 `load()` returns the entity directly and throws on failure:
 
 ```ts
 try {
-  const magiceightball = await client.MagicEightBall().load()
+  const magiceightball = await client.MagicEightBall().load({
+    question: 'example_question',
+  })
   console.log(magiceightball)
 } catch (err) {
   console.error('load failed:', err)
@@ -314,7 +317,7 @@ Create an instance: `const magic_eight_ball = client.MagicEightBall()`
 #### Example: Load
 
 ```ts
-const magic_eight_ball = await client.MagicEightBall().load()
+const magic_eight_ball = await client.MagicEightBall().load({ question: 'question' })
 ```
 
 

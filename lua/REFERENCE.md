@@ -99,7 +99,7 @@ local magic_eight_ball = client:MagicEightBall(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:MagicEightBall():load()
+local result, err = client:MagicEightBall():load({ question = "question" })
 ```
 
 ### Common Methods

@@ -101,7 +101,7 @@ $magic_eight_ball = $client->MagicEightBall();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->MagicEightBall()->load();
+$result = $client->MagicEightBall()->load(["question" => "question"]);
 ```
 
 ### Common Methods

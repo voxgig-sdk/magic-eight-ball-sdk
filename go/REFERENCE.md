@@ -90,7 +90,8 @@ same parameters as `Direct()`.
 ## MagicEightBallEntity
 
 ```go
-magic_eight_ball := client.MagicEightBall(nil)
+magicEightBall := client.MagicEightBall(nil)
+fmt.Println(magicEightBall.GetName()) // "magic_eight_ball"
 ```
 
 ### Fields
@@ -106,7 +107,11 @@ magic_eight_ball := client.MagicEightBall(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.MagicEightBall(nil).Load(nil, nil)
+result, err := client.MagicEightBall(nil).Load(map[string]any{"question": "question"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods

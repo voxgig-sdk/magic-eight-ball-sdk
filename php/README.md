@@ -33,10 +33,12 @@ $client = new MagicEightBallSDK();
 
 ### 3. Load a magiceightball
 
+MagicEightBall is nested under question, so provide the `question`.
+
 ```php
 try {
     // load() returns the bare MagicEightBall record (throws on error).
-    $magiceightball = $client->MagicEightBall()->load();
+    $magiceightball = $client->MagicEightBall()->load(["question" => "example_question"]);
     print_r($magiceightball);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -275,7 +277,7 @@ Create an instance: `$magic_eight_ball = $client->MagicEightBall();`
 
 ```php
 // load() returns the bare MagicEightBall record (throws on error).
-$magic_eight_ball = $client->MagicEightBall()->load();
+$magic_eight_ball = $client->MagicEightBall()->load(["question" => "question"]);
 ```
 
 

@@ -32,10 +32,12 @@ client = MagicEightBallSDK.new
 
 ### 3. Load a magiceightball
 
+MagicEightBall is nested under question, so provide the `question`.
+
 ```ruby
 begin
   # load returns the bare MagicEightBall record (raises on error).
-  magiceightball = client.MagicEightBall.load()
+  magiceightball = client.MagicEightBall.load({ "question" => "example_question" })
   puts magiceightball
 rescue => err
   warn "load failed: #{err}"
@@ -265,7 +267,7 @@ Create an instance: `magic_eight_ball = client.MagicEightBall`
 
 ```ruby
 # load returns the bare MagicEightBall record (raises on error).
-magic_eight_ball = client.MagicEightBall.load()
+magic_eight_ball = client.MagicEightBall.load({ "question" => "question" })
 ```
 
 

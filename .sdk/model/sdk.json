@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -218,14 +215,17 @@
           "url": "https://github.com/abunchofapis/magic-eight-ball"
         },
         "description": "The Magic Eight Ball API allows users to receive random fortune-telling responses typically associated with the toy. It's useful for developers looking to add a playful predictive element to their applications or websites.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://8ball.delegator.com"
           }
         ],
+        "summary": "The Magic Eight Ball API allows users to receive random fortune-telling responses typically associated with the toy.",
         "title": "Magic Eight Ball API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://github.com/abunchofapis/magic-eight-ball"
       },
       "option": {},
       "target": {
@@ -278,6 +278,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -328,6 +331,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

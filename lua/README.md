@@ -35,8 +35,10 @@ local client = sdk.new()
 
 ### 3. Load a magiceightball
 
+MagicEightBall is nested under question, so provide the `question`.
+
 ```lua
-local magiceightball, err = client:MagicEightBall():load()
+local magiceightball, err = client:MagicEightBall():load({ question = "example_question" })
 if err then error(err) end
 print(magiceightball)
 ```
@@ -255,7 +257,7 @@ Create an instance: `local magic_eight_ball = client:MagicEightBall(nil)`
 #### Example: Load
 
 ```lua
-local magic_eight_ball, err = client:MagicEightBall():load()
+local magic_eight_ball, err = client:MagicEightBall():load({ question = "question" })
 ```
 
 
