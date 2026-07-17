@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- MagicEightBall SDK exists test
 
 local sdk = require("magic-eight-ball_sdk")
 
