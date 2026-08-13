@@ -10,10 +10,18 @@
 
 # MagicEightBall entity data model.
 #
-# @!attribute [rw] magic
-#   @return [Hash, nil]
+# @!attribute [rw] answer
+#   @return [String, nil]
+#
+# @!attribute [rw] question
+#   @return [String, nil]
+#
+# @!attribute [rw] type
+#   @return [String, nil]
 MagicEightBall = Struct.new(
-  :magic,
+  :answer,
+  :question,
+  :type,
   keyword_init: true
 )
 

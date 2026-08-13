@@ -68,11 +68,11 @@ function magic_eight_ball_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["MAGICEIGHTBALL_TEST_MAGIC_EIGHT_BALL_ENTID"] = {},
-    ["MAGICEIGHTBALL_TEST_LIVE"] = "FALSE",
+    ["MAGIC_EIGHT_BALL_TEST_MAGIC_EIGHT_BALL_ENTID"] = {},
+    ["MAGIC_EIGHT_BALL_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["MAGICEIGHTBALL_TEST_LIVE"] == "TRUE"
+  local live = env["MAGIC_EIGHT_BALL_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

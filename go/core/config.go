@@ -26,10 +26,24 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "magic",
+						"name": "answer",
 						"req": false,
-						"type": "`$OBJECT`",
+						"type": "`$STRING`",
 						"index$": 0,
+					},
+					map[string]any{
+						"active": true,
+						"name": "question",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 1,
+					},
+					map[string]any{
+						"active": true,
+						"name": "type",
+						"req": false,
+						"type": "`$STRING`",
+						"index$": 2,
 					},
 				},
 				"name": "magic_eight_ball",
@@ -54,6 +68,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/magic/JSON/{question}",
 								"parts": []any{
@@ -68,12 +83,11 @@ func MakeConfig() map[string]any {
 								},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.magic`",
 								},
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{

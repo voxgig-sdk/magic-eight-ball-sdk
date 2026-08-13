@@ -23,7 +23,7 @@ support (`load`):
 
 ```ts
 const client = new MagicEightBallSDK()
-const magiceightball = await client.MagicEightBall().load()
+const magiceightball = await client.MagicEightBall().load({ question: "example" })
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —
@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = MagicEightBallSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = MagicEightBallSDK.test({
+  entity: {
+    magic_eight_ball: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const magiceightball = await client.MagicEightBall().load({ question: 'example_question' })
-// magiceightball is a bare MagicEightBall populated with mock data
+// magiceightball is the MagicEightBall entity, populated with mock data
+// — call magiceightball.data() for the record itself
 console.log(magiceightball)
 ```
 
@@ -185,7 +194,7 @@ require_once 'magiceightball_sdk.php';
 $client = new MagicEightBallSDK();
 
 
-// Load a specific magiceightball (returns the bare record; throws on error)
+// Load a specific magiceightball (returns the ENTITY; call data_get() for the record; throws on error)
 $magiceightball = $client->MagicEightBall()->load(["question" => "example_question"]);
 print_r($magiceightball);
 ```
@@ -216,7 +225,7 @@ require_relative "MagicEightBall_sdk"
 client = MagicEightBallSDK.new
 
 
-# Load a specific magiceightball (returns the bare record; raises on error)
+# Load a specific magiceightball (returns the ENTITY; call data_get for the record)
 magiceightball = client.MagicEightBall.load({ "question" => "example_question" })
 puts magiceightball
 ```
@@ -350,6 +359,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://github.com/abunchofapis/magic-eight-ball](https://github.com/abunchofapis/magic-eight-ball)
 

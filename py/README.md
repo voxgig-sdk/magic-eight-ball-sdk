@@ -39,7 +39,7 @@ client = MagicEightBallSDK()
 ### 3. Load a magiceightball
 
 MagicEightBall is nested under question, so provide the `question`.
-`load()` returns the bare record (a `dict`) and raises on error.
+`load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
@@ -56,7 +56,7 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    magiceightball = client.MagicEightBall().load()
+    magiceightball = client.MagicEightBall().load({"question": "example"})
     print(magiceightball)
 except Exception as err:
     print(f"load failed: {err}")
@@ -123,8 +123,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = MagicEightBallSDK.test()
 
-# Entity ops return the bare record and raise on error.
-magiceightball = client.MagicEightBall().load()
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
+magiceightball = client.MagicEightBall().load({"question": "example"})
 # magiceightball contains the mock response record
 ```
 
@@ -219,7 +220,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -241,7 +242,9 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `magic` |  |
+| `answer` |  |
+| `question` |  |
+| `type` |  |
 
 Operations: Load.
 
@@ -266,7 +269,9 @@ Create an instance: `magic_eight_ball = client.MagicEightBall()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `magic` | `dict` |  |
+| `answer` | `str` |  |
+| `question` | `str` |  |
+| `type` | `str` |  |
 
 #### Example: Load
 
@@ -351,7 +356,7 @@ stores the returned data and match criteria internally.
 
 ```python
 magiceightball = client.MagicEightBall()
-magiceightball.load()
+magiceightball.load({"question": "example"})
 
 # magiceightball.data_get() now returns the magiceightball data from the last load
 # magiceightball.match_get() returns the last match criteria

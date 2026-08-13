@@ -90,7 +90,9 @@ local magic_eight_ball = client:MagicEightBall(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `magic` | `table` | No |  |
+| `answer` | `string` | No |  |
+| `question` | `string` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 

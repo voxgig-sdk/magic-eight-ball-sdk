@@ -23,8 +23,8 @@ module MagicEightBallTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("MAGICEIGHTBALL_TEST_LIVE")
-    override = getenv("MAGICEIGHTBALL_TEST_OVERRIDE")
+    live = getenv("MAGIC_EIGHT_BALL_TEST_LIVE")
+    override = getenv("MAGIC_EIGHT_BALL_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module MagicEightBallTestRunner
       end
     end
 
-    explain = getenv("MAGICEIGHTBALL_TEST_EXPLAIN")
-    m["MAGICEIGHTBALL_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("MAGIC_EIGHT_BALL_TEST_EXPLAIN")
+    m["MAGIC_EIGHT_BALL_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

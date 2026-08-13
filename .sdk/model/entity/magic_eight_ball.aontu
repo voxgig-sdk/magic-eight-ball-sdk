@@ -6,9 +6,19 @@ main: kit: entity: magic_eight_ball: {
 
   fields: [
     {
-      name: "magic"
+      name: "answer"
       req: false
-      type: "`$OBJECT`"
+      type: "`$STRING`"
+    }
+    {
+      name: "question"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "type"
+      req: false
+      type: "`$STRING`"
     }
   ]
 
@@ -44,7 +54,7 @@ main: kit: entity: magic_eight_ball: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.magic`"
           }
         }
       ]

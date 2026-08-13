@@ -43,8 +43,8 @@ class MagicEightBallTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('MAGICEIGHTBALL_TEST_LIVE');
-        $override = self::getenv('MAGICEIGHTBALL_TEST_OVERRIDE');
+        $live = self::getenv('MAGIC_EIGHT_BALL_TEST_LIVE');
+        $override = self::getenv('MAGIC_EIGHT_BALL_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class MagicEightBallTestRunner
             }
         }
 
-        $explain = self::getenv('MAGICEIGHTBALL_TEST_EXPLAIN');
+        $explain = self::getenv('MAGIC_EIGHT_BALL_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['MAGICEIGHTBALL_TEST_EXPLAIN'] = $explain;
+            $m['MAGIC_EIGHT_BALL_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

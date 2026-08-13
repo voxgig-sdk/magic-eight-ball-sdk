@@ -66,7 +66,7 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-magiceightball, err := client.MagicEightBall(nil).Load(nil, nil)
+magiceightball, err := client.MagicEightBall(nil).Load(map[string]any{"question": "example"}, nil)
 if err != nil {
     // handle err
     return
@@ -136,7 +136,7 @@ Create a mock client for unit testing — no server required:
 client := sdk.Test()
 
 magicEightBall, err := client.MagicEightBall(nil).Load(
-    nil, nil,
+    map[string]any{"question": "example"}, nil,
 )
 if err != nil {
     panic(err)
@@ -258,7 +258,9 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"magic"` |  |
+| `"answer"` |  |
+| `"question"` |  |
+| `"type"` |  |
 
 Operations: Load.
 
@@ -283,7 +285,9 @@ Create an instance: `magicEightBall := client.MagicEightBall(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `magic` | `map[string]any` |  |
+| `answer` | `string` |  |
+| `question` | `string` |  |
+| `type` | `string` |  |
 
 #### Example: Load
 
@@ -370,7 +374,7 @@ stores the returned data and match criteria internally.
 
 ```go
 magiceightball := client.MagicEightBall(nil)
-magiceightball.Load(nil, nil)
+magiceightball.Load(map[string]any{"question": "example"}, nil)
 
 // magiceightball.Data() now returns the magiceightball data from the last load
 // magiceightball.Match() returns the last match criteria

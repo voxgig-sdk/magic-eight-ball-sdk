@@ -116,7 +116,9 @@ const magic_eight_ball = client.MagicEightBall()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `magic` | `Record<string, any>` | No |  |
+| `answer` | `string` | No |  |
+| `question` | `string` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 

@@ -37,7 +37,7 @@ MagicEightBall is nested under question, so provide the `question`.
 
 ```php
 try {
-    // load() returns the bare MagicEightBall record (throws on error).
+    // load() returns the ENTITY — call data_get() for the MagicEightBall record (throws on error).
     $magiceightball = $client->MagicEightBall()->load(["question" => "example_question"]);
     print_r($magiceightball);
 } catch (\Throwable $err) {
@@ -53,7 +53,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $magiceightball = $client->MagicEightBall()->load();
+    $magiceightball = $client->MagicEightBall()->load(["question" => "example"]);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -125,8 +125,9 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = MagicEightBallSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
-$magiceightball = $client->MagicEightBall()->load();
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
+$magiceightball = $client->MagicEightBall()->load(["question" => "example"]);
 print_r($magiceightball);
 ```
 
@@ -224,7 +225,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -246,7 +247,9 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `magic` |  |
+| `answer` |  |
+| `question` |  |
+| `type` |  |
 
 Operations: Load.
 
@@ -271,12 +274,14 @@ Create an instance: `$magic_eight_ball = $client->MagicEightBall();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `magic` | `array` |  |
+| `answer` | `string` |  |
+| `question` | `string` |  |
+| `type` | `string` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare MagicEightBall record (throws on error).
+// load() returns the ENTITY — call data_get() for the MagicEightBall record (throws on error).
 $magic_eight_ball = $client->MagicEightBall()->load(["question" => "question"]);
 ```
 
@@ -358,7 +363,7 @@ stores the returned data and match criteria internally.
 
 ```php
 $magiceightball = $client->MagicEightBall();
-$magiceightball->load();
+$magiceightball->load(["question" => "example"]);
 
 // $magiceightball->data_get() now returns the magiceightball data from the last load
 // $magiceightball->match_get() returns the last match criteria

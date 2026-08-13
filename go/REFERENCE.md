@@ -98,7 +98,9 @@ fmt.Println(magicEightBall.GetName()) // "magic_eight_ball"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `magic` | `map[string]any` | No |  |
+| `answer` | `string` | No |  |
+| `question` | `string` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 

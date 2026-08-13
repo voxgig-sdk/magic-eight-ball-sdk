@@ -15,7 +15,9 @@ declare(strict_types=1);
 /** MagicEightBall entity data model. */
 class MagicEightBall
 {
-    public ?array $magic = null;
+    public ?string $answer = null;
+    public ?string $question = null;
+    public ?string $type = null;
 }
 
 /** Request payload for MagicEightBall#load. */

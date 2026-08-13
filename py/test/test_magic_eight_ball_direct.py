@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from magiceightball_sdk.utility.voxgig_struct import voxgig_struct as vs
 from magiceightball_sdk import MagicEightBallSDK
-from core import helpers
+from magiceightball_sdk.core import helpers
 from test import runner
 
 
@@ -63,11 +63,11 @@ def _magic_eight_ball_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "MAGICEIGHTBALL_TEST_MAGIC_EIGHT_BALL_ENTID": {},
-        "MAGICEIGHTBALL_TEST_LIVE": "FALSE",
+        "MAGIC_EIGHT_BALL_TEST_MAGIC_EIGHT_BALL_ENTID": {},
+        "MAGIC_EIGHT_BALL_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("MAGICEIGHTBALL_TEST_LIVE") == "TRUE"
+    live = env.get("MAGIC_EIGHT_BALL_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

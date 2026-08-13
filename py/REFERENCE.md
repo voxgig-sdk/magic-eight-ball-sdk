@@ -87,7 +87,9 @@ magic_eight_ball = client.MagicEightBall()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `magic` | `dict` | No |  |
+| `answer` | `str` | No |  |
+| `question` | `str` | No |  |
+| `type` | `str` | No |  |
 
 ### Operations
 

@@ -36,7 +36,7 @@ MagicEightBall is nested under question, so provide the `question`.
 
 ```ruby
 begin
-  # load returns the bare MagicEightBall record (raises on error).
+  # load returns the ENTITY — call data_get for the MagicEightBall record (raises on error).
   magiceightball = client.MagicEightBall.load({ "question" => "example_question" })
   puts magiceightball
 rescue => err
@@ -51,7 +51,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  magiceightball = client.MagicEightBall.load()
+  magiceightball = client.MagicEightBall.load({ "question" => "example" })
 rescue => err
   warn "load failed: #{err}"
 end
@@ -119,8 +119,9 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = MagicEightBallSDK.test
 
-# Entity ops return the bare mock record (raises on error).
-magiceightball = client.MagicEightBall.load()
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
+magiceightball = client.MagicEightBall.load({ "question" => "example" })
 puts magiceightball
 ```
 
@@ -236,7 +237,9 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `magic` |  |
+| `answer` |  |
+| `question` |  |
+| `type` |  |
 
 Operations: Load.
 
@@ -261,12 +264,14 @@ Create an instance: `magic_eight_ball = client.MagicEightBall`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `magic` | `Hash` |  |
+| `answer` | `String` |  |
+| `question` | `String` |  |
+| `type` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare MagicEightBall record (raises on error).
+# load returns the ENTITY — call data_get for the MagicEightBall record (raises on error).
 magic_eight_ball = client.MagicEightBall.load({ "question" => "question" })
 ```
 
@@ -348,7 +353,7 @@ stores the returned data and match criteria internally.
 
 ```ruby
 magiceightball = client.MagicEightBall
-magiceightball.load()
+magiceightball.load({ "question" => "example" })
 
 # magiceightball.data_get now returns the magiceightball data from the last load
 # magiceightball.match_get returns the last match criteria

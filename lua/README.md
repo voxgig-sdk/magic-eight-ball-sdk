@@ -50,7 +50,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local magiceightball, err = client:MagicEightBall():load()
+local magiceightball, err = client:MagicEightBall():load({ question = "example" })
 if err then error(err) end
 ```
 
@@ -108,7 +108,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:MagicEightBall():load()
+local result, err = client:MagicEightBall():load({ question = "example" })
 -- result is the returned data; err is set on failure
 ```
 
@@ -227,7 +227,9 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `magic` |  |
+| `answer` |  |
+| `question` |  |
+| `type` |  |
 
 Operations: Load.
 
@@ -252,7 +254,9 @@ Create an instance: `local magic_eight_ball = client:MagicEightBall(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `magic` | `table` |  |
+| `answer` | `string` |  |
+| `question` | `string` |  |
+| `type` | `string` |  |
 
 #### Example: Load
 
@@ -338,7 +342,7 @@ stores the returned data and match criteria internally.
 
 ```lua
 local magiceightball = client:MagicEightBall()
-magiceightball:load()
+magiceightball:load({ question = "example" })
 
 -- magiceightball:data_get() now returns the magiceightball data from the last load
 -- magiceightball:match_get() returns the last match criteria

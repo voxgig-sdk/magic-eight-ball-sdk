@@ -26,10 +26,24 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
-            ["name"] = "magic",
+            ["name"] = "answer",
             ["req"] = false,
-            ["type"] = "`$OBJECT`",
+            ["type"] = "`$STRING`",
             ["index$"] = 0,
+          },
+          {
+            ["active"] = true,
+            ["name"] = "question",
+            ["req"] = false,
+            ["type"] = "`$STRING`",
+            ["index$"] = 1,
+          },
+          {
+            ["active"] = true,
+            ["name"] = "type",
+            ["req"] = false,
+            ["type"] = "`$STRING`",
+            ["index$"] = 2,
           },
         },
         ["name"] = "magic_eight_ball",
@@ -54,6 +68,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/magic/JSON/{question}",
                 ["parts"] = {
@@ -68,7 +83,7 @@ local function make_config()
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.magic`",
                 },
                 ["index$"] = 0,
               },

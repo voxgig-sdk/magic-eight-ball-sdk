@@ -93,7 +93,9 @@ magic_eight_ball = client.MagicEightBall
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `magic` | `Hash` | No |  |
+| `answer` | `String` | No |  |
+| `question` | `String` | No |  |
+| `type` | `String` | No |  |
 
 ### Operations
 

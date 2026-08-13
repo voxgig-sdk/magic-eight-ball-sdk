@@ -2,18 +2,21 @@
   "existing": {
     "magic_eight_ball": {
       "MAGIC_EIGHT_BALL00": {
-        "magic": {},
-        "question": "QUESTION01",
+        "answer": "s1e",
+        "question": "s1f",
+        "type": "s20",
         "id": "MAGIC_EIGHT_BALL00"
       },
       "MAGIC_EIGHT_BALL01": {
-        "magic": {},
-        "question": "QUESTION01",
+        "answer": "s3c",
+        "question": "s3d",
+        "type": "s3e",
         "id": "MAGIC_EIGHT_BALL01"
       },
       "MAGIC_EIGHT_BALL02": {
-        "magic": {},
-        "question": "QUESTION01",
+        "answer": "s5a",
+        "question": "s5b",
+        "type": "s5c",
         "id": "MAGIC_EIGHT_BALL02"
       }
     }
@@ -21,7 +24,9 @@
   "new": {
     "magic_eight_ball": {
       "magic_eight_ball_ref01": {
-        "magic": {}
+        "answer": "s78",
+        "question": "s79",
+        "type": "s7a"
       }
     }
   }

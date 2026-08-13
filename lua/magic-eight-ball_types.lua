@@ -7,7 +7,9 @@
 -- edit by hand.
 
 ---@class MagicEightBall
----@field magic? table
+---@field answer? string
+---@field question? string
+---@field type? string
 
 ---@class MagicEightBallLoadMatch
 ---@field question string

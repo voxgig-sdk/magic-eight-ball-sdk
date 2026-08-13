@@ -6,7 +6,9 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface MagicEightBall {
-  magic?: Record<string, any>
+  answer?: string
+  question?: string
+  type?: string
 }
 
 export interface MagicEightBallLoadMatch {

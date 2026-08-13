@@ -26,8 +26,8 @@ import {
 describe('MagicEightBallEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when MAGICEIGHTBALL_TEST_LIVE=TRUE.
-  afterEach(liveDelay('MAGICEIGHTBALL_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when MAGIC_EIGHT_BALL_TEST_LIVE=TRUE.
+  afterEach(liveDelay('MAGIC_EIGHT_BALL_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = MagicEightBallSDK.test()

@@ -8,6 +8,7 @@ guide: {
   entity: magic_eight_ball: {
     path: "/magic/JSON/{question}": {
       op: load: method: *GET
+      op: load: transform: res: *("`body.magic`")|top
     }
   }
 

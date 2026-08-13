@@ -56,7 +56,7 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const magiceightball = await client.MagicEightBall().load()
+  const magiceightball = await client.MagicEightBall().load({ question: "example" })
   console.log(magiceightball)
 } catch (err) {
   console.error('load failed:', err)
@@ -123,8 +123,9 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = MagicEightBallSDK.test()
 
-const magiceightball = await client.MagicEightBall().load()
-// magiceightball is a bare entity populated with mock response data
+const magiceightball = await client.MagicEightBall().load({ question: 'example_question' })
+// magiceightball is the entity, populated with mock response data
+// — call magiceightball.data() for the record itself
 console.log(magiceightball)
 ```
 
@@ -143,7 +144,7 @@ Entity instances remember their last match and data:
 const entity = client.MagicEightBall()
 
 // First call runs the operation and stores its result
-await entity.load()
+await entity.load({ question: 'example_question' })
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
@@ -287,7 +288,9 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `magic` |  |
+| `answer` |  |
+| `question` |  |
+| `type` |  |
 
 Operations: load.
 
@@ -312,7 +315,9 @@ Create an instance: `const magic_eight_ball = client.MagicEightBall()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `magic` | `Record<string, any>` |  |
+| `answer` | `string` |  |
+| `question` | `string` |  |
+| `type` | `string` |  |
 
 #### Example: Load
 
@@ -391,7 +396,7 @@ calls on the same instance can rely on this state.
 
 ```ts
 const magiceightball = client.MagicEightBall()
-await magiceightball.load()
+await magiceightball.load({ question: "example" })
 
 // magiceightball.data() now returns the magiceightball data from the last `load`
 // magiceightball.match() returns the last match criteria

@@ -19,11 +19,15 @@ import {
 describe('MagicEightBallDirect', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when MAGICEIGHTBALL_TEST_LIVE=TRUE.
-  afterEach(liveDelay('MAGICEIGHTBALL_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when MAGIC_EIGHT_BALL_TEST_LIVE=TRUE.
+  afterEach(liveDelay('MAGIC_EIGHT_BALL_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new MagicEightBallSDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -77,17 +81,17 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'MAGICEIGHTBALL_TEST_MAGIC_EIGHT_BALL_ENTID': {},
-    'MAGICEIGHTBALL_TEST_LIVE': 'FALSE',
+    'MAGIC_EIGHT_BALL_TEST_MAGIC_EIGHT_BALL_ENTID': {},
+    'MAGIC_EIGHT_BALL_TEST_LIVE': 'FALSE',
   })
 
-  const live = 'TRUE' === env.MAGICEIGHTBALL_TEST_LIVE
+  const live = 'TRUE' === env.MAGIC_EIGHT_BALL_TEST_LIVE
 
   if (live) {
     const client = new MagicEightBallSDK({
     })
 
-    let idmap: any = env['MAGICEIGHTBALL_TEST_MAGIC_EIGHT_BALL_ENTID']
+    let idmap: any = env['MAGIC_EIGHT_BALL_TEST_MAGIC_EIGHT_BALL_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

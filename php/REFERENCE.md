@@ -92,7 +92,9 @@ $magic_eight_ball = $client->MagicEightBall();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `magic` | `array` | No |  |
+| `answer` | `string` | No |  |
+| `question` | `string` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 
