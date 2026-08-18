@@ -36,7 +36,7 @@ class Config {
 
 
   options = {
-    base: 'https://8ball.delegator.com',
+    base: "https://8ball.delegator.com",
 
     headers: {
       "content-type": "application/json"
@@ -55,25 +55,16 @@ class Config {
     "magic_eight_ball": {
       "fields": [
         {
-          "active": true,
           "name": "answer",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 0
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "question",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 1
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "type",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 2
+          "type": "`$STRING`"
         }
       ],
       "name": "magic_eight_ball",
@@ -83,18 +74,15 @@ class Config {
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {
                 "params": [
                   {
-                    "active": true,
                     "example": "Will I be rich?",
                     "kind": "param",
                     "name": "question",
                     "orig": "question",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -114,11 +102,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.magic`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {
