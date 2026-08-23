@@ -36,18 +36,21 @@
               "active": true,
               "name": "answer",
               "req": false,
+              "short": "The Magic Eight Ball response",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "question",
               "req": false,
+              "short": "The question that was asked",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "type",
               "req": false,
+              "short": "The category of the answer (affirmative, non-committal, or negative)",
               "type": "`$STRING`"
             }
           ],

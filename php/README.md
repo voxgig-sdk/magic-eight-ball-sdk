@@ -247,9 +247,9 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `answer` |  |
-| `question` |  |
-| `type` |  |
+| `answer` | The Magic Eight Ball response |
+| `question` | The question that was asked |
+| `type` | The category of the answer (affirmative, non-committal, or negative) |
 
 Operations: Load.
 
@@ -274,9 +274,9 @@ Create an instance: `$magic_eight_ball = $client->MagicEightBall();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `answer` | `string` |  |
-| `question` | `string` |  |
-| `type` | `string` |  |
+| `answer` | `string` | The Magic Eight Ball response |
+| `question` | `string` | The question that was asked |
+| `type` | `string` | The category of the answer (affirmative, non-committal, or negative) |
 
 #### Example: Load
 

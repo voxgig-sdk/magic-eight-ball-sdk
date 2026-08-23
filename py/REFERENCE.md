@@ -87,9 +87,9 @@ magic_eight_ball = client.MagicEightBall()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `answer` | `str` | No |  |
-| `question` | `str` | No |  |
-| `type` | `str` | No |  |
+| `answer` | `str` | No | The Magic Eight Ball response |
+| `question` | `str` | No | The question that was asked |
+| `type` | `str` | No | The category of the answer (affirmative, non-committal, or negative) |
 
 ### Operations
 

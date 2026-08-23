@@ -98,9 +98,9 @@ fmt.Println(magicEightBall.GetName()) // "magic_eight_ball"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `answer` | `string` | No |  |
-| `question` | `string` | No |  |
-| `type` | `string` | No |  |
+| `answer` | `string` | No | The Magic Eight Ball response |
+| `question` | `string` | No | The question that was asked |
+| `type` | `string` | No | The category of the answer (affirmative, non-committal, or negative) |
 
 ### Operations
 

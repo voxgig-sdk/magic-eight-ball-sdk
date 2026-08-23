@@ -33,6 +33,9 @@ class MagicEightBallConfig
         return [
             "main" => [
                 "name" => "MagicEightBall",
+                "slug" => "magic-eight-ball",
+                "version" => "0.0.1",
+                "target" => "php",
             ],
             "feature" => [
                 "test" => [
@@ -55,14 +58,17 @@ class MagicEightBallConfig
           'fields' => [
             [
               'name' => 'answer',
+              'short' => 'The Magic Eight Ball response',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'question',
+              'short' => 'The question that was asked',
               'type' => '`$STRING`',
             ],
             [
               'name' => 'type',
+              'short' => 'The category of the answer (affirmative, non-committal, or negative)',
               'type' => '`$STRING`',
             ],
           ],

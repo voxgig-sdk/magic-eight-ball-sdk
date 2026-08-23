@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -288,9 +288,9 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `answer` |  |
-| `question` |  |
-| `type` |  |
+| `answer` | The Magic Eight Ball response |
+| `question` | The question that was asked |
+| `type` | The category of the answer (affirmative, non-committal, or negative) |
 
 Operations: load.
 
@@ -315,9 +315,9 @@ Create an instance: `const magic_eight_ball = client.MagicEightBall()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `answer` | `string` |  |
-| `question` | `string` |  |
-| `type` | `string` |  |
+| `answer` | `string` | The Magic Eight Ball response |
+| `question` | `string` | The question that was asked |
+| `type` | `string` | The category of the answer (affirmative, non-committal, or negative) |
 
 #### Example: Load
 

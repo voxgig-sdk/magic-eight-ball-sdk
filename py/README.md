@@ -242,9 +242,9 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `answer` |  |
-| `question` |  |
-| `type` |  |
+| `answer` | The Magic Eight Ball response |
+| `question` | The question that was asked |
+| `type` | The category of the answer (affirmative, non-committal, or negative) |
 
 Operations: Load.
 
@@ -269,9 +269,9 @@ Create an instance: `magic_eight_ball = client.MagicEightBall()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `answer` | `str` |  |
-| `question` | `str` |  |
-| `type` | `str` |  |
+| `answer` | `str` | The Magic Eight Ball response |
+| `question` | `str` | The question that was asked |
+| `type` | `str` | The category of the answer (affirmative, non-committal, or negative) |
 
 #### Example: Load
 

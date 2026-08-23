@@ -6,7 +6,7 @@ The Golang SDK for the MagicEightBall API — an entity-oriented client using st
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.MagicEightBall(nil)` — each with the same small set of operations (`Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -258,9 +258,9 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"answer"` |  |
-| `"question"` |  |
-| `"type"` |  |
+| `"answer"` | The Magic Eight Ball response |
+| `"question"` | The question that was asked |
+| `"type"` | The category of the answer (affirmative, non-committal, or negative) |
 
 Operations: Load.
 
@@ -285,9 +285,9 @@ Create an instance: `magicEightBall := client.MagicEightBall(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `answer` | `string` |  |
-| `question` | `string` |  |
-| `type` | `string` |  |
+| `answer` | `string` | The Magic Eight Ball response |
+| `question` | `string` | The question that was asked |
+| `type` | `string` | The category of the answer (affirmative, non-committal, or negative) |
 
 #### Example: Load
 

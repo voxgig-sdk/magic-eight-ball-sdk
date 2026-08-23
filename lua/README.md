@@ -227,9 +227,9 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `answer` |  |
-| `question` |  |
-| `type` |  |
+| `answer` | The Magic Eight Ball response |
+| `question` | The question that was asked |
+| `type` | The category of the answer (affirmative, non-committal, or negative) |
 
 Operations: Load.
 
@@ -254,9 +254,9 @@ Create an instance: `local magic_eight_ball = client:MagicEightBall(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `answer` | `string` |  |
-| `question` | `string` |  |
-| `type` | `string` |  |
+| `answer` | `string` | The Magic Eight Ball response |
+| `question` | `string` | The question that was asked |
+| `type` | `string` | The category of the answer (affirmative, non-committal, or negative) |
 
 #### Example: Load
 
