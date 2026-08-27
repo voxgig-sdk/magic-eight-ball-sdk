@@ -28,6 +28,7 @@ module MagicEightBallConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
