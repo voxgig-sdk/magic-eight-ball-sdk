@@ -81,10 +81,16 @@ module MagicEightBallConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/magic/JSON/{question}",
-                  "parts" => [
-                    "magic",
-                    "JSON",
-                    "{question}",
+                  "segments" => [
+                    {
+                      "lit" => "magic",
+                    },
+                    {
+                      "lit" => "JSON",
+                    },
+                    {
+                      "var" => "question",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -95,6 +101,11 @@ module MagicEightBallConfig
                     "req" => "`reqdata`",
                     "res" => "`body.magic`",
                   },
+                  "parts" => [
+                    "magic",
+                    "JSON",
+                    "{question}",
+                  ],
                 },
               ],
             },

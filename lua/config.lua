@@ -69,10 +69,16 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/magic/JSON/{question}",
-                ["parts"] = {
-                  "magic",
-                  "JSON",
-                  "{question}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "magic",
+                  },
+                  {
+                    ["lit"] = "JSON",
+                  },
+                  {
+                    ["var"] = "question",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -82,6 +88,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.magic`",
+                },
+                ["parts"] = {
+                  "magic",
+                  "JSON",
+                  "{question}",
                 },
               },
             },
