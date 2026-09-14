@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { MagicEightBallSDK } from '@voxgig-sdk/magic-eight-ball'
+import { MagicEightBallSDK } from '@voxgig-sdk/magic-eight-ball-sdk'
 
 const client = new MagicEightBallSDK()
 ```
@@ -408,7 +408,7 @@ magic-eight-ball/
 Import the SDK from the package root:
 
 ```ts
-import { MagicEightBallSDK } from '@voxgig-sdk/magic-eight-ball'
+import { MagicEightBallSDK } from '@voxgig-sdk/magic-eight-ball-sdk'
 ```
 
 ### Entity state

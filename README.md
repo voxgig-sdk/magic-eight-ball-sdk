@@ -105,7 +105,7 @@ local result, err = client:MagicEightBall():load({ question = "example" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/magic-eight-ball` | publish pending — [install from git tag](https://github.com/voxgig-sdk/magic-eight-ball-sdk/releases) |
+| TypeScript | `@voxgig-sdk/magic-eight-ball-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/magic-eight-ball-sdk/releases) |
 | Python | `voxgig-sdk-magic-eight-ball` | publish pending — [install from git tag](https://github.com/voxgig-sdk/magic-eight-ball-sdk/releases) |
 | PHP | `voxgig-sdk/magic-eight-ball` | publish pending — [install from git tag](https://github.com/voxgig-sdk/magic-eight-ball-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/magic-eight-ball-sdk/go` | `go get github.com/voxgig-sdk/magic-eight-ball-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:MagicEightBall():load({ question = "example" })
 ### TypeScript
 
 ```ts
-import { MagicEightBallSDK } from '@voxgig-sdk/magic-eight-ball'
+import { MagicEightBallSDK } from '@voxgig-sdk/magic-eight-ball-sdk'
 
 const client = new MagicEightBallSDK()
 
