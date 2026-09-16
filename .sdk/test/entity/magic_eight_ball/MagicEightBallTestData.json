@@ -29,5 +29,76 @@
         "type": "s7a"
       }
     }
+  },
+  "requests": {
+    "GET /magic/JSON/{question}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getMagicResponse",
+        "parameters": [
+          {
+            "description": "The question to ask the Magic Eight Ball",
+            "example": "Will I be rich?",
+            "in": "path",
+            "name": "question",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "example": {
+                  "magic": {
+                    "answer": "It is certain",
+                    "question": "Will I be rich?",
+                    "type": "affirmative"
+                  }
+                },
+                "schema": {
+                  "properties": {
+                    "magic": {
+                      "properties": {
+                        "answer": {
+                          "description": "The Magic Eight Ball response",
+                          "type": "string"
+                        },
+                        "question": {
+                          "description": "The question that was asked",
+                          "type": "string"
+                        },
+                        "type": {
+                          "description": "The category of the answer (affirmative, non-committal, or negative)",
+                          "enum": [
+                            "affirmative",
+                            "non-committal",
+                            "negative"
+                          ],
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with Magic Eight Ball answer"
+          },
+          "400": {
+            "description": "Bad request - invalid question format"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }
