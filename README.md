@@ -105,12 +105,12 @@ local result, err = client:MagicEightBall():load({ question = "example" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/magic-eight-ball-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/magic-eight-ball-sdk/releases) |
-| Python | `voxgig-sdk-magic-eight-ball` | publish pending — [install from git tag](https://github.com/voxgig-sdk/magic-eight-ball-sdk/releases) |
-| PHP | `voxgig-sdk/magic-eight-ball` | publish pending — [install from git tag](https://github.com/voxgig-sdk/magic-eight-ball-sdk/releases) |
+| TypeScript | `@voxgig-sdk/magic-eight-ball-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/magic-eight-ball-sdk/tags) |
+| Python | `voxgig-sdk-magic-eight-ball` | publish pending — [install from git tag](https://github.com/voxgig-sdk/magic-eight-ball-sdk/tags) |
+| PHP | `voxgig-sdk/magic-eight-ball` | publish pending — [install from git tag](https://github.com/voxgig-sdk/magic-eight-ball-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/magic-eight-ball-sdk/go` | `go get github.com/voxgig-sdk/magic-eight-ball-sdk/go@latest` |
-| Ruby | `voxgig-sdk-magic-eight-ball` | publish pending — [install from git tag](https://github.com/voxgig-sdk/magic-eight-ball-sdk/releases) |
-| Lua | `voxgig-sdk-magic-eight-ball` | publish pending — [install from git tag](https://github.com/voxgig-sdk/magic-eight-ball-sdk/releases) |
+| Ruby | `voxgig-sdk-magic-eight-ball` | publish pending — [install from git tag](https://github.com/voxgig-sdk/magic-eight-ball-sdk/tags) |
+| Lua | `voxgig-sdk-magic-eight-ball` | publish pending — [install from git tag](https://github.com/voxgig-sdk/magic-eight-ball-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/magic-eight-ball-sdk/go-cli` | `go install github.com/voxgig-sdk/magic-eight-ball-sdk/go-cli/cmd/magic-eight-ball@latest` |
 | Go MCP server | `github.com/voxgig-sdk/magic-eight-ball-sdk/go-mcp` | `go get github.com/voxgig-sdk/magic-eight-ball-sdk/go-mcp@latest` |
 
