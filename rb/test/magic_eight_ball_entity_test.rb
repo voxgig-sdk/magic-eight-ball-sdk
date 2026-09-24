@@ -62,7 +62,7 @@ def magic_eight_ball_basic_setup(extra)
 
   # Generate idmap via transform.
   idmap = Vs.transform(
-    ["magic_eight_ball01", "magic_eight_ball02", "magic_eight_ball03", "json01", "json02", "json03"],
+    ["magic_eight_ball01", "magic_eight_ball02", "magic_eight_ball03"],
     {
       "`$PACK`" => ["", {
         "`$KEY`" => "`$COPY`",

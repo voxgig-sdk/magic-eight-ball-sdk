@@ -38,7 +38,6 @@ client = MagicEightBallSDK()
 
 ### 3. Load a magiceightball
 
-MagicEightBall is nested under question, so provide the `question`.
 `load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python

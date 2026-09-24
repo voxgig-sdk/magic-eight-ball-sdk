@@ -91,18 +91,21 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "answer",
-						"short": "The Magic Eight Ball response",
+						"title": "Answer",
 						"type": "`$STRING`",
+						"short": "The Magic Eight Ball response",
 					},
 					map[string]any{
 						"name": "question",
-						"short": "The question that was asked",
+						"title": "Question",
 						"type": "`$STRING`",
+						"short": "The question that was asked",
 					},
 					map[string]any{
 						"name": "type",
-						"short": "The category of the answer (affirmative, non-committal, or negative)",
+						"title": "Type",
 						"type": "`$STRING`",
+						"short": "The category of the answer (affirmative, non-committal, or negative)",
 					},
 				},
 				"name": "magic_eight_ball",
@@ -112,18 +115,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": "Will I be rich?",
-											"kind": "param",
-											"name": "question",
-											"orig": "question",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/magic/JSON/{question}",
@@ -138,30 +129,39 @@ func MakeConfig() map[string]any {
 										"var": "question",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"question",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.magic`",
-								},
 								"parts": []any{
 									"magic",
 									"JSON",
 									"{question}",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.magic`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "question",
+											"orig": "question",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "Will I be rich?",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"question",
+									},
 								},
 							},
 						},
 					},
 				},
 				"relations": map[string]any{
-					"ancestors": []any{
-						[]any{
-							"json",
-						},
-					},
+					"ancestors": []any{},
 				},
 			},
 		},

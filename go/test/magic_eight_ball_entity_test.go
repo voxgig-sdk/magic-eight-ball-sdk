@@ -98,7 +98,7 @@ func magic_eight_ballBasicSetup(extra map[string]any) *entityTestSetup {
 
 	// Generate idmap via transform, matching TS pattern.
 	idmap, _ := vs.Transform(
-		[]any{"magic_eight_ball01", "magic_eight_ball02", "magic_eight_ball03", "json01", "json02", "json03"},
+		[]any{"magic_eight_ball01", "magic_eight_ball02", "magic_eight_ball03"},
 		map[string]any{
 			"`$PACK`": []any{"", map[string]any{
 				"`$KEY`": "`$COPY`",

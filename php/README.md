@@ -33,8 +33,6 @@ $client = new MagicEightBallSDK();
 
 ### 3. Load a magiceightball
 
-MagicEightBall is nested under question, so provide the `question`.
-
 ```php
 try {
     // load() returns the ENTITY — call data_get() for the MagicEightBall record (throws on error).

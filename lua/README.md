@@ -35,8 +35,6 @@ local client = sdk.new()
 
 ### 3. Load a magiceightball
 
-MagicEightBall is nested under question, so provide the `question`.
-
 ```lua
 local magiceightball, err = client:MagicEightBall():load({ question = "example_question" })
 if err then error(err) end

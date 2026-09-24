@@ -1,0 +1,83 @@
+# Entity: magic_eight_ball
+
+main: kit: entity: magic_eight_ball: {
+
+  alias: field: {}
+
+  fields: {
+    answer: {
+      h: "Answer"
+      n: "answer"
+      r: false
+      sh: "The Magic Eight Ball response"
+      t: "`$STRING`"
+    }
+    question: {
+      h: "Question"
+      n: "question"
+      r: false
+      sh: "The question that was asked"
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: false
+      sh: "The category of the answer (affirmative, non-committal, or negative)"
+      t: "`$STRING`"
+    }
+  }
+
+  name: "magic_eight_ball"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /magic/JSON/{question}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "Will I be rich?"
+                k: "param"
+                n: "question"
+                or: "question"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/magic/JSON/{question}"
+          q: {
+            exist: [
+              "question"
+            ]
+          }
+          s: [
+            {
+              lit: "magic"
+            }
+            {
+              lit: "JSON"
+            }
+            {
+              var: "question"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.magic`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

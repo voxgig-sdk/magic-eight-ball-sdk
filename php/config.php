@@ -113,18 +113,21 @@ class MagicEightBallConfig
           'fields' => [
             [
               'name' => 'answer',
-              'short' => 'The Magic Eight Ball response',
+              'title' => 'Answer',
               'type' => '`$STRING`',
+              'short' => 'The Magic Eight Ball response',
             ],
             [
               'name' => 'question',
-              'short' => 'The question that was asked',
+              'title' => 'Question',
               'type' => '`$STRING`',
+              'short' => 'The question that was asked',
             ],
             [
               'name' => 'type',
-              'short' => 'The category of the answer (affirmative, non-committal, or negative)',
+              'title' => 'Type',
               'type' => '`$STRING`',
+              'short' => 'The category of the answer (affirmative, non-committal, or negative)',
             ],
           ],
           'name' => 'magic_eight_ball',
@@ -134,18 +137,6 @@ class MagicEightBallConfig
               'name' => 'load',
               'points' => [
                 [
-                  'args' => [
-                    'params' => [
-                      [
-                        'example' => 'Will I be rich?',
-                        'kind' => 'param',
-                        'name' => 'question',
-                        'orig' => 'question',
-                        'reqd' => true,
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/magic/JSON/{question}',
@@ -160,30 +151,39 @@ class MagicEightBallConfig
                       'var' => 'question',
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'question',
-                    ],
-                  ],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body.magic`',
-                  ],
                   'parts' => [
                     'magic',
                     'JSON',
                     '{question}',
+                  ],
+                  'rename' => [],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body.magic`',
+                  ],
+                  'args' => [
+                    'params' => [
+                      [
+                        'name' => 'question',
+                        'orig' => 'question',
+                        'type' => '`$STRING`',
+                        'kind' => 'param',
+                        'reqd' => true,
+                        'example' => 'Will I be rich?',
+                      ],
+                    ],
+                  ],
+                  'select' => [
+                    'exist' => [
+                      'question',
+                    ],
                   ],
                 ],
               ],
             ],
           ],
           'relations' => [
-            'ancestors' => [
-              [
-                'json',
-              ],
-            ],
+            'ancestors' => [],
           ],
         ],
       ],

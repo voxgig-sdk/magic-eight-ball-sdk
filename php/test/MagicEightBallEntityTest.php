@@ -70,7 +70,7 @@ function magic_eight_ball_basic_setup($extra)
 
     // Generate idmap.
     $idmap = [];
-    foreach (["magic_eight_ball01", "magic_eight_ball02", "magic_eight_ball03", "json01", "json02", "json03"] as $k) {
+    foreach (["magic_eight_ball01", "magic_eight_ball02", "magic_eight_ball03"] as $k) {
         $idmap[$k] = strtoupper($k);
     }
 

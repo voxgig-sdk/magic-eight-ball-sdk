@@ -32,8 +32,6 @@ client = MagicEightBallSDK.new
 
 ### 3. Load a magiceightball
 
-MagicEightBall is nested under question, so provide the `question`.
-
 ```ruby
 begin
   # load returns the ENTITY — call data_get for the MagicEightBall record (raises on error).
