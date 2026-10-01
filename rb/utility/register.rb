@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 MagicEightBallUtility.registrar = ->(u) {
   u.clean = MagicEightBallUtilities::Clean
+  u.clean_add = MagicEightBallUtilities::CleanAdd
+  u.clean_explain = MagicEightBallUtilities::CleanExplain
   u.done = MagicEightBallUtilities::Done
   u.make_error = MagicEightBallUtilities::MakeError
   u.feature_add = MagicEightBallUtilities::FeatureAdd

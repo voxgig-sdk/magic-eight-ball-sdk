@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 MagicEightBallUtility::setRegistrar(function (MagicEightBallUtility $u): void {
     $u->clean = [MagicEightBallClean::class, 'call'];
+    $u->clean_add = [MagicEightBallClean::class, 'add'];
+    $u->clean_explain = [MagicEightBallDone::class, 'clean_explain'];
     $u->done = [MagicEightBallDone::class, 'call'];
     $u->make_error = [MagicEightBallMakeError::class, 'call'];
     $u->feature_add = [MagicEightBallFeatureAdd::class, 'call'];

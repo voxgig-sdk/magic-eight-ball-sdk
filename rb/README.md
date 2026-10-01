@@ -12,9 +12,18 @@ The SDK exposes the API as capitalised, semantic **Entities** — for example `c
 
 ## Install
 This package is not yet published to RubyGems. Install it from the
-GitHub release tag (`rb/vX.Y.Z`):
+GitHub release tag (`rb/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/magic-eight-ball-sdk/releases)), or
+from a clone:
 
-- Releases: [https://github.com/voxgig-sdk/magic-eight-ball-sdk/releases](https://github.com/voxgig-sdk/magic-eight-ball-sdk/releases)
+```bash
+git clone https://github.com/voxgig-sdk/magic-eight-ball-sdk
+```
+
+Then add it to your `Gemfile` by path, and run `bundle install`:
+
+```ruby
+gem "voxgig-sdk-magic-eight-ball-sdk", path: "./magic-eight-ball-sdk/rb"
+```
 
 
 ## Tutorial: your first API call
