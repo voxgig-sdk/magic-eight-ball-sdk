@@ -3,5 +3,15 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Production server",
+      "Successful response with Magic Eight Ball answer",
+      "The Magic Eight Ball API allows users to receive random fortune-telling responses typically associated with the toy. It&#39;s useful for developers looking to add a playful predictive element to their applications or websites.",
+      "The Magic Eight Ball response",
+      "The category of the answer (affirmative, non-committal, or negative)",
+      "The question that was asked"
+    ]
+  }
 }

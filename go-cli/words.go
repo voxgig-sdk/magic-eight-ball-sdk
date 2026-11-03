@@ -75,7 +75,7 @@ func runOp(client *sdk.MagicEightBallSDK, op string, query *eng.Value, entityAto
 
 // entityFor dispatches on the lowercase entity name. The generator
 // emits one `case "<name>":` per entity defined in the SDK model.
-func entityFor(client *sdk.MagicEightBallSDK, name string) (sdk.MagicEightBallEntity, error) {
+func entityFor(client *sdk.MagicEightBallSDK, name string) (sdk.MagicEightBallEntityBase, error) {
 	switch strings.ToLower(name) {
 	case "magic_eight_ball":
 		return client.MagicEightBall(nil), nil

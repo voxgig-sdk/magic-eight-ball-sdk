@@ -12,6 +12,8 @@ type MagicEightBallError struct {
 	Ctx    *Context `json:"-"`
 	Result any
 	Spec   any
+	// The HTTP status, -1 when there was no response.
+	Status int
 }
 
 func NewMagicEightBallError(code string, msg string, ctx *Context) *MagicEightBallError {
@@ -21,7 +23,12 @@ func NewMagicEightBallError(code string, msg string, ctx *Context) *MagicEightBa
 		Code:               code,
 		Msg:                msg,
 		Ctx:                ctx,
+		Status:             -1,
 	}
+}
+
+func (e *MagicEightBallError) NotFound() bool {
+	return 404 == e.Status
 }
 
 func (e *MagicEightBallError) Error() string {
@@ -35,6 +42,7 @@ func (e *MagicEightBallError) Record() map[string]any {
 		"sdk":     e.Sdk,
 		"code":    e.Code,
 		"message": e.Msg,
+		"status":  e.Status,
 		"result":  e.Result,
 		"spec":    e.Spec,
 	}

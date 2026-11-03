@@ -13,7 +13,12 @@ type Context = core.Context
 type Utility = core.Utility
 type Feature = core.Feature
 type Entity = core.Entity
-type MagicEightBallEntity = core.MagicEightBallEntity
+type MagicEightBallEntityBase = core.MagicEightBallEntityBase
+
+// Deprecated: use MagicEightBallEntityBase.
+type MagicEightBallEntity = core.MagicEightBallEntityBase
+
+type StreamItem = core.StreamItem
 type FetcherFunc = core.FetcherFunc
 type Spec = core.Spec
 type Result = core.Result
@@ -41,7 +46,7 @@ func init() {
 	core.NewTimeoutFeatureFunc = func() core.Feature {
 		return feature.NewTimeoutFeature()
 	}
-	core.NewMagicEightBallEntityFunc = func(client *core.MagicEightBallSDK, entopts map[string]any) core.MagicEightBallEntity {
+	core.NewMagicEightBallEntityFunc = func(client *core.MagicEightBallSDK, entopts map[string]any) core.MagicEightBallEntityBase {
 		return entity.NewMagicEightBallEntity(client, entopts)
 	}
 }

@@ -1,6 +1,9 @@
 # MagicEightBall SDK utility: prepare_body
+require_relative 'media'
 module MagicEightBallUtilities
   PrepareBody = ->(ctx) {
-    ctx.op.input == "data" ? ctx.utility.transform_request.call(ctx) : nil
+    return nil unless ctx.op.input == "data"
+    return MagicEightBallUtilities.raw_body(ctx.reqdata) if MagicEightBallUtilities.raw_request?(ctx.point)
+    ctx.utility.transform_request.call(ctx)
   }
 end

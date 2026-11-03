@@ -12,5 +12,5 @@ var NewTestFeatureFunc func() Feature
 
 var NewTimeoutFeatureFunc func() Feature
 
-var NewMagicEightBallEntityFunc func(client *MagicEightBallSDK, entopts map[string]any) MagicEightBallEntity
+var NewMagicEightBallEntityFunc func(client *MagicEightBallSDK, entopts map[string]any) MagicEightBallEntityBase
 

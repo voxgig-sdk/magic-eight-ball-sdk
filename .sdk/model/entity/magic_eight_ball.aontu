@@ -58,6 +58,10 @@ main: kit: entity: magic_eight_ball: {
               "question"
             ]
           }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "magic"
